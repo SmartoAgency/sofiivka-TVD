@@ -1,0 +1,110 @@
+.breadcrumbs {
+  margin: 0 vw(170, 1920) 30px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  z-index: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px; 
+  padding-left: var(--page-side-fields);
+  padding-right: var(--page-side-fields);
+  width: 100%;
+  &-list {
+    display: flex;
+    align-items: center;
+    align-content: center;
+  }
+  .link__arrow {
+    margin: 0 15px;
+    fill: #C4C7CC;
+    @include to(992px) {
+      margin: 0 20px;
+    }
+    @include to(480px) {
+      margin: 0 15px;
+    }
+  }
+  .icon--arrow {
+    width: 2px;
+    height: 2px;
+    background-color: var(--color-07222-f);
+    border-radius: 50%;
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+  
+  &-item {
+    display: flex;
+    align-items: center;
+    &__icon {
+      background-color: var(--color-body-description);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      margin-left: 12px;
+      margin-right: 12px;
+    }
+    &:last-child,
+    &__link {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 140%;
+      color: var(--color-07222-f);
+      text-decoration: none;
+      white-space: nowrap;
+
+    }
+    &:last-child {
+      display: initial;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 50ch;
+      color: var(--color-body-description);
+      @include to(576px) {
+        max-width: 14ch;
+      }
+    }
+  }
+  &-item:not(:last-child) .breadcrumbs-item__link {
+    position: relative;
+  }
+  &-item:not(:last-child) .breadcrumbs-item__link:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-07222-f);
+    
+  }
+
+  @media (hover: hover) {
+    &-item:not(:last-child) .breadcrumbs-item__link:after,
+    &-item:not(:last-child):hover .breadcrumbs-item__link {
+      transition: .25s ease-out;
+    }
+    &-item:not(:last-child):hover .breadcrumbs-item__link {
+      color: var(--color-14427-c);
+    }
+    &-item:not(:last-child):hover .breadcrumbs-item__link:after {
+      background-color: var(--color-14427-c);
+    }
+  }
+}
+
+
+.mobile {
+  .breadcrumbs {
+    margin-bottom: 8px;
+    .breadcrumbs-item:last-child, .breadcrumbs-item__link {
+      font-size: 12px;
+    }
+  }
+}

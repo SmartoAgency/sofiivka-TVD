@@ -1,0 +1,110 @@
+.info-label {
+    border-radius: 0px 1000px 1000px 575px;
+    background: var(--color-white);
+    color: var(--color-black);
+    padding: 4px 24px 12px 32px;
+    width: max-content;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-items: right;
+    align-items: start;
+    column-gap: 20px;
+    grid-template-areas: "title digit"
+    "text digit"
+    ;
+    min-width: 300px;
+    text-decoration: none;
+    @include to(600px){
+        min-width: 140px;
+        width: 140px;
+        border-radius: 8px;
+        padding: 8px;
+        gap: 8px;
+        grid-template-areas: "digit title"
+        "text text"
+        ;
+        align-items: center;
+        text-align: center;
+        height: 96px;
+        grid-template-columns: 0.8fr 1.2fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    &--reverse {
+        @include from(601px){
+            border-radius: 1000px 0px 575px 1000px;
+        }
+        padding: 4px 32px 12px 24px;
+        grid-template-areas: "digit title"
+        "digit text"
+        ;
+        grid-template-columns: auto 1fr;
+        justify-items: left;
+        @media screen and (max-width:600px){
+            padding: 8px;
+            grid-template-areas: "digit title"
+            "text text"
+            ;
+            grid-template-columns: 0.8fr 1.2fr;
+            grid-template-rows: 1fr 1fr;
+            align-items: center;
+            gap: 8px;
+
+        }
+    }
+    &__icon {
+        position: absolute;
+        left: 8px;
+        top: 8px;
+        @media screen and (max-width:600px){
+            left: 0;
+            top: 0;
+        }
+    }
+    &--reverse &__icon{
+        left: auto;
+        right: 8px;
+        @media screen and (max-width:600px){
+            right: 0;
+        }
+    }
+    &__digit {
+        background: var(--color-gradient);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        grid-area: digit;
+        @media screen and (max-width:600px){
+            margin-left: auto;
+        }
+    }
+    &__text {
+        grid-area: text;
+        @media screen and (max-width:600px){
+            @include text-style-1920-button;
+            text-align: center;
+            justify-self: center;
+            padding-left: 15%;
+            padding-right: 15%;
+        }
+    }
+    &__title {
+        grid-area: title;
+        align-self: end;
+        @include to(600px){
+            justify-self: start;
+        }
+    }
+    @media (hover: hover) {
+        &:hover {
+            background: var(--color-gradient);
+            color: var(--color-white);
+            &__digit {
+                // background: var(--color-white);
+                // background-clip: text;
+                // -webkit-background-clip: text;
+                // -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}

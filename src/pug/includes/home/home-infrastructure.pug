@@ -1,0 +1,82 @@
+- 
+  var legendButton = [
+      {
+        icon: 'School.svg',
+        title: 'Школи та садочки',
+        category: 'education'
+      },
+      {
+        icon: 'Supermarket.svg',
+        title: 'Супермаркети та магазини',
+        category: 'shop'
+      },
+      {
+        icon: 'Restaurant.svg',
+        title: 'Ресторани і кав\'ярні',
+        category: 'cafe'
+      },
+      {
+        icon: 'Pharmacy.svg',
+        title: 'Медицина',
+        category: 'medicine'
+      },
+      {
+        icon: 'Sport complex.svg',
+        title: 'Спорт',
+        category: 'sport'
+      },
+      
+      {
+        icon: 'banks.svg',
+        title: 'Банки',
+        category: 'bank'
+      },
+      {
+        icon: 'Petrol station.svg',
+        title: 'АЗС',
+        category: 'petrol'
+      },
+      {
+        icon: 'Parks.svg',
+        title: 'Парки',
+        category: 'park'
+      },
+      {
+        icon: 'Nova  Poshta.svg',
+        title: 'Пошта',
+        category: 'post'
+      },
+      {
+        icon: 'Bus Stop.svg',
+        title: 'Громадський транспорт',
+        category: 'transport'
+      },
+      
+      
+  ];
+
+section.section-infrastructure#infrastructure
+  .section-infrastructure__content.accordion-container
+    .section-infrastructure__title.text-style-1920-h-1(data-split-lines) ЛОКАЦІЯ
+    .section-infrastructure__map.map
+      #map
+    .section-infrastructure__open-button.absolute.text-style-1920-button(data-infra-filter-open)
+      span Показати фільтри
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5 13.5L11.5 15C11.5 15.2761 11.2761 15.5 11 15.5C10.7239 15.5 10.5 15.2761 10.5 15L10.5 13L10.5 11C10.5 10.7239 10.7239 10.5 11 10.5C11.2761 10.5 11.5 10.7239 11.5 11L11.5 12.5L15 12.5C15.2761 12.5 15.5 12.7239 15.5 13C15.5 13.2761 15.2761 13.5 15 13.5L11.5 13.5ZM7 7.5C6.72386 7.5 6.5 7.72386 6.5 8C6.5 8.27614 6.72386 8.5 7 8.5L15 8.5C15.2761 8.5 15.5 8.27614 15.5 8C15.5 7.72386 15.2761 7.5 15 7.5L7 7.5ZM9.5 3.5L15 3.5C15.2761 3.5 15.5 3.27614 15.5 3C15.5 2.72386 15.2761 2.5 15 2.5L9.5 2.5L9.5 1C9.5 0.723858 9.27614 0.5 9 0.5C8.72386 0.5 8.5 0.723858 8.5 1L8.5 3L8.5 5C8.5 5.27614 8.72386 5.5 9 5.5C9.27614 5.5 9.5 5.27614 9.5 5L9.5 3.5ZM0.5 3C0.5 2.72386 0.723858 2.5 1 2.5L5 2.5C5.27614 2.5 5.5 2.72386 5.5 3C5.5 3.27614 5.27614 3.5 5 3.5L1 3.5C0.723858 3.5 0.5 3.27614 0.5 3ZM0.5 8C0.5 7.72386 0.723858 7.5 1 7.5L3.5 7.5L3.5 6C3.5 5.72386 3.72386 5.5 4 5.5C4.27614 5.5 4.5 5.72386 4.5 6L4.5 8L4.5 10C4.5 10.2761 4.27614 10.5 4 10.5C3.72386 10.5 3.5 10.2761 3.5 10L3.5 8.5L1 8.5C0.723858 8.5 0.5 8.27614 0.5 8ZM0.5 13C0.5 12.7239 0.723858 12.5 1 12.5L7 12.5C7.27614 12.5 7.5 12.7239 7.5 13C7.5 13.2761 7.27614 13.5 7 13.5L1 13.5C0.723858 13.5 0.5 13.2761 0.5 13Z" fill="#EFF0F7"/>
+      </svg>
+    .section-infrastructure__map-legend(data-infra-filter)
+      .section-infrastructure__map-legend-head
+        .section-infrastructure__map-legend-title.text-style-1920-body-titles ТИПИ ОБʼЄКТІВ
+
+      .section-infrastructure__map-legend-body.ac-panel
+        button(type="button" data-marker-reset).section-infrastructure__map-legend-main-button Показати всі
+        each val in legendButton
+          button(type="button" data-category=val.category data-marker).section-infrastructure__map-legend-button
+            img(src=`./assets/images/markers/${val.icon}`, alt=`${val.title}`)
+            span #{val.title}
+      .section-infrastructure__open-button.text-style-1920-button(data-infra-filter-close)
+        span Cховати фільтри
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 3.64645C3.84171 3.45118 4.15829 3.45118 4.35355 3.64645L8 7.29289L11.6464 3.64645C11.8417 3.45118 12.1583 3.45118 12.3536 3.64645C12.5488 3.84171 12.5488 4.15829 12.3536 4.35355L8.70711 8L12.3536 11.6464C12.5488 11.8417 12.5488 12.1583 12.3536 12.3536C12.1583 12.5488 11.8417 12.5488 11.6464 12.3536L8 8.70711L4.35355 12.3536C4.15829 12.5488 3.84171 12.5488 3.64645 12.3536C3.45118 12.1583 3.45118 11.8417 3.64645 11.6464L7.29289 8L3.64645 4.35355C3.45118 4.15829 3.45118 3.84171 3.64645 3.64645Z" fill="#EFF0F7"/>
+        </svg>

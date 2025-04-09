@@ -1,0 +1,37 @@
+{
+	"text-style-1920-h-1": {
+		"prefix": "text-style-1920-h-1",
+		"body": ["$1.text-style-1920-h-1 $2"],
+		"description": "Snippet for text-style-1920-h-1"
+	},
+	"text-style-1920-h-2": {
+		"prefix": "text-style-1920-h-2",
+		"body": ["$1.text-style-1920-h-2 $2"],
+		"description": "Snippet for text-style-1920-h-2"
+	},
+	"text-style-1920-body-titles": {
+		"prefix": "text-style-1920-body-titles",
+		"body": ["$1.text-style-1920-body-titles $2"],
+		"description": "Snippet for text-style-1920-body-titles"
+	},
+	"text-style-1920-body": {
+		"prefix": "text-style-1920-body",
+		"body": ["$1.text-style-1920-body $2"],
+		"description": "Snippet for text-style-1920-body"
+	},
+	"text-style-1920-button": {
+		"prefix": "text-style-1920-button",
+		"body": ["$1.text-style-1920-button $2"],
+		"description": "Snippet for text-style-1920-button"
+	},
+	"text-style-375-h-1": {
+		"prefix": "text-style-375-h-1",
+		"body": ["$1.text-style-375-h-1 $2"],
+		"description": "Snippet for text-style-375-h-1"
+	},
+	"text-style-375-h-2": {
+		"prefix": "text-style-375-h-2",
+		"body": ["$1.text-style-375-h-2 $2"],
+		"description": "Snippet for text-style-375-h-2"
+	}
+}

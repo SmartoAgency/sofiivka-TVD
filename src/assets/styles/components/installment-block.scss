@@ -1,0 +1,73 @@
+.installment-block {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    border: 1px solid var(--color-yellow);
+    @include to(1024px){
+        flex-direction: column-reverse;
+    }
+
+    &__text {
+        width: 33.333%;
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        @include to(1024px){
+            width: 100%;
+            align-items: center;
+        }
+        @include to(600px){
+            padding: 20px;
+        }
+    }
+    &__title {
+        color: var(--White, #EFF0F7);
+        font-family: Geologica;
+        font-size: Min(pxWidthInVw(48), 48px);
+        font-style: normal;
+        font-weight: 300;
+        line-height: 120%; /* 57.6px */
+        letter-spacing: -0.96px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        @include to(1024px){
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 300;
+            line-height: 120%; /* 57.6px */
+            text-align: center;
+        }
+        @include to(600px){
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+    }
+    &__img {
+        width: 66.6666%;
+        @include to(1024px){
+            width: 100%;
+        }
+    }
+    &__img-wrap {
+        position: relative;
+        padding-bottom: 31.52%;
+        overflow: hidden;
+        @include to(1024px){
+            padding-bottom: 43.59%;
+        }
+        @include to(600px){
+            padding-bottom: 68%;
+        }
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}

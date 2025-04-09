@@ -1,0 +1,72 @@
+.page404 {
+    width: 100%;
+    height: calc(100vh - var(--header-h));
+    margin-top: var(--header-h);
+    display: flex;
+    flex-wrap: wrap;
+    @include to(1024px){
+        flex-direction: column-reverse;
+        height: auto;
+    }
+    @include to(600px){
+        height: calc(var(--vh, 1vh) * 100 - var(--header-h));
+    }
+    &__img {
+        width: 50%;
+        background-color: #fff;
+        padding: 70px;
+        @include to(1024px){
+            width: 100%;
+            height: calc(50vh - var(--header-h));
+            padding: 40px;
+        }
+        @include to(600px){
+            padding: 20px;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    &__title {
+        font-family: $default-font2;
+        font-size: Min(pxWidthInVw(260), 260px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%; /* 260px */
+        letter-spacing: -7.8px;
+        text-transform: uppercase;
+        @include to(1024px){
+            font-size: 120px;
+        }
+        @include to(600px){
+            font-size: 60px;
+        }
+    }
+    &__text {
+        width: 50%;
+        padding: pxWidthInVw(100);
+        display: flex;
+        flex-direction: column;
+        gap: 42px;
+        align-items: flex-start;justify-content: center;
+        @include to(1024px){
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            height: calc(50vh - var(--header-h));
+            gap: 20px;
+            padding: 40px;
+        }
+        @include to(600px){
+            padding: 20px var(--page-side-fields);
+            flex-grow: 1;
+        }
+    }
+    &__buttons {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}

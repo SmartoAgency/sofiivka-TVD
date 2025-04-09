@@ -1,0 +1,119 @@
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Липень 2024'
+    var id_page = 'id-page-single-construction'
+    var class_page = 'class-page-single-construction'
+    var breadcrumbsSubitem = [
+      {
+        label: 'Хід будівництва',
+        link: '/construction'
+      }
+    ];
+    var slides = [
+      './assets/images/construction/Rectangle 4065.jpg',
+      './assets/images/construction/image 12.jpg',
+      './assets/images/construction/image 13.jpg',
+      './assets/images/construction/image 14.jpg',
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/single-construction.bundle.js')
+block content
+  .construction-page-bg
+    img(data-inner-page-bg src="./assets/images/construction-bg.jpg", alt="", srcset="" loading="lazy")
+  .inner-page-head
+    .inner-page-head__title Липень 2024
+    include ../includes/breadcrumbs.pug
+  .single-construction
+    a(href="/construction").single-construction-back-button
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.63543 7.99987L1.98899 7.64632L7.64584 1.98946C7.8411 1.7942 8.15769 1.7942 8.35295 1.98946C8.54821 2.18473 8.54821 2.50131 8.35295 2.69657L3.54965 7.49987H13.6562C13.9324 7.49987 14.1562 7.72373 14.1562 7.99987C14.1562 8.27601 13.9324 8.49987 13.6562 8.49987H3.54965L8.35295 13.3032C8.54821 13.4984 8.54821 13.815 8.35295 14.0103C8.15769 14.2055 7.8411 14.2055 7.64584 14.0103L1.98899 8.35343L1.63543 7.99987Z" fill="#EFF0F7"/>
+      </svg>
+      span Назад
+    .single-construction__content
+      h1 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      h2 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      h3 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      h4 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      h5 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      h6 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      ul 
+        li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+        li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      ol 
+        li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+        li 2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka
+      <p><span style="font-weight: 700;">Встигніть придбати </span><b>2-кімнатна квартира 65,1 м² у ЖК бізнес-класу Sofiivka</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Готова для заселення вже цього літа!</b></p>
+      <p><span style="font-weight: 400;"> </span><b>White-box комплектація:</b><b><br>
+          </b><span style="font-weight: 400;">– Всі чорнові роботи виконані, залишилось лише втілити ваш дизайн!</span><span style="font-weight: 400;"><br>
+          </span><span style="font-weight: 400;">– Ідеально для родини – простора кухня-вітальня, окремі кімнати, панорамні вікна.</span></p>
+      <p><span style="font-weight: 400;"> </span><b>Умови акції:</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Перший внесок – $24,738</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Розтермінування на 12 місяців без здорожчання!</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Можливість заселитися одразу після купівлі</b></p>
+      <p><span style="font-weight: 400;"> </span><b>ЖК Sofiivka – це:</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Комплекс бізнес-класу</b><span style="font-weight: 400;"> з власним </span><b>ТРЦ, спорткомплексом, басейнами, Сільпо та кінотеатром</b><b><br>
+          </b><span style="font-weight: 400;"> </span><b>Закрита територія</b><span style="font-weight: 400;"> з озелененням, фонтанами та зонами відпочинку</span><span style="font-weight: 400;"><br>
+          </span><span style="font-weight: 400;"> </span><b>Зручна інфраструктура</b><span style="font-weight: 400;"> – дитячі садочки, школи та магазини поруч</span></p>
+      <p><span style="font-weight: 400;"> </span><b>Кількість квартир за акційною ціною обмежена!</b><b><br>
+          </b><span style="font-weight: 400;">Не втрачайте можливість заселитися вже цього літа – залишайте заявку прямо зараз! </span><span style="font-weight: 400;"><br>
+          </span></p>
+    .single-construction-slider.swiper-container(data-single-construction-slider)
+      .single-construction__navigation
+        .slider-nav-button.text-style-1920-button(data-gallery="prev")
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+            <path d="M6.84471 11L4.17235 8.5L1.5 6M1.5 6L6.84471 1M1.5 6C4.66724 6 8.80785 6 11.5 6" stroke="#EFF0F7" stroke-width="0.9" stroke-linecap="square"/>
+          </svg>
+        .slider-nav-button(data-gallery="next")
+          <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+            <path d="M6.15529 11L8.82765 8.5L11.5 6M11.5 6L6.15529 1M11.5 6C8.33276 6 4.19215 6 1.5 6" stroke="#EFF0F7" stroke-width="0.9" stroke-linecap="square"/>
+          </svg>
+      .swiper-wrapper
+        each val in slides
+          img(src=val, alt="", srcset="" loading="lazy").swiper-slide
+    .single-construction__video
+      .text-style-1920-h-2 Відеозвіт з будівництва
+      .single-construction__video-wrap
+        <svg data-construction-video-play class="single-construction__video-button" width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="80" height="80" rx="40" fill="#1A1A1D"/>
+          <path d="M45.2438 39.4855L34.8618 32.9968C34.4577 32.7442 33.9336 33.0347 33.9336 33.5112V46.4887C33.9336 46.9652 34.4577 47.2557 34.8618 47.0032L45.2438 40.5144C45.624 40.2768 45.624 39.7231 45.2438 39.4855Z" fill="#EFF0F7"/>
+        </svg>
+        video(poster="./assets/images/test.jpg" playsinline data-construction-video)
+          source(src="https://smarto.agency/wp-content/themes/smartoagency/static/smartorange_showreel1.mp4", type="video/mp4")
+          <p>Ваш браузер не підтримує HTML5 відео.</p>
+
+  .construction-container
+    .text-style-1920-h-1.construction-container__title Більше звітів
+    .construction-container__content
+      each val in [0,1]
+        a(href="/single-construction").construction-card
+          .construction-card__text
+            .construction-card__text-title
+              .text-style-1920-h-1 18
+              .construction-card__title.text-style-1920-h-4 2025 Червень
+            button(type="button" data-popup-call).construction-card__button
+              span ПЕРЕГЛЯНУТИ
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.999986 8.49992L1.49999 8.49992L12.7929 8.49992L7.64643 13.6464L7.29288 13.9999L7.99999 14.707L8.35354 14.3535L14.3535 8.35348L14.7071 7.99992L14.3535 7.64637L8.35354 1.64637L7.99999 1.29282L7.29288 1.99992L7.64643 2.35348L12.7929 7.49992L1.49999 7.49992L0.999986 7.49992L0.999986 8.49992Z" fill="white"/>
+              </svg>
+          .construction-card__img-wrapper
+            .construction-card__img
+              .construction-card__labels-wrapper
+                .construction-card__label 14 фото
+                .construction-card__label 1 відео
+              img(src="./assets/images/test.jpg", alt="", srcset="" loading="lazy")
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

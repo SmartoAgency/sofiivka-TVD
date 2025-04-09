@@ -1,0 +1,37 @@
+-
+  var slides = [
+    {title: "ІГРОВА ЗОНА"},
+    {title: "ВБИРАЛЬНЯ"},
+    {title: "СПАЛЬНЯ"},
+    {title: "ЗОВНІШНІЙ ДВІР"},
+    {title: "БАСЕЙН"},
+    {title: "ДИТЯЧИЙ МАЙДАНЧИК"},
+    {title: "ВНУТРІШНІЙ ДВІР"},
+    {title: "СПОРТИВНИЙ МАЙДАНЧИК"},
+  ]
+
+div(class="home-gallery-screen "+galleryBlockCustomClass)#gallery
+  .home-gallery-screen__title.text-style-1920-h-1 Галерея
+  .frame__nav
+    each slide in slides
+      button.frame__nav-button.unbutton.text-style-1920-button #{slide.title}
+  <div class="slides">
+    each slide in slides
+      div.slide
+        div.slide__inner
+          div.slide__img
+            div.slide__img-inner(style="background-image:url(./assets/images/test.jpg)")
+  </div>
+  .home-gallery-screen__mobile-nav-title.hide-on-tablet.hide-on-desktop(data-home-gallery-mobile-slide-title)
+  .home-gallery-screen__nav
+    .slider-nav-button.text-style-1920-button(data-gallery="prev")
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+        <path d="M6.84471 11L4.17235 8.5L1.5 6M1.5 6L6.84471 1M1.5 6C4.66724 6 8.80785 6 11.5 6" stroke="#EFF0F7" stroke-width="0.9" stroke-linecap="square"/>
+      </svg>
+    span(data-gallery-current) 01
+    span /
+    span(data-gallery-all) #{slides.length < 10 ? "0" + slides.length : slides.length}
+    .slider-nav-button(data-gallery="next")
+      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
+        <path d="M6.15529 11L8.82765 8.5L11.5 6M11.5 6L6.15529 1M11.5 6C8.33276 6 4.19215 6 1.5 6" stroke="#EFF0F7" stroke-width="0.9" stroke-linecap="square"/>
+      </svg>

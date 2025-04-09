@@ -1,0 +1,248 @@
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 40;
+	transition: .45s ease-out;
+	// padding: 15px var(--page-side-fields) 0 var(--page-side-fields);
+	padding-left: var(--page-side-fields);
+	padding-right: var(--page-side-fields);
+	background: rgba(217, 217, 226, 0.50);
+	
+	background: transparent;
+	// background-color: #27314B;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    // height: var(--header-h);
+    --v-padding: 15px;
+    --between-margin: 60px;
+	--inner-gap: 40px;
+    
+    font-size: 14px;
+    line-height: 100%;
+	transition: background-color .5s ease-in-out, top .5s ease-in-out, transform .5s ease-in-out;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(239, 240, 247, 0.20);
+	@include to(1620px){
+		--between-margin: 20px;
+		--inner-gap: 20px;
+	}
+	@include to(600px){
+		--between-margin: 8px;
+		--inner-gap: 8px;
+	}
+	@include from(1025px){
+		height: var(--header-h);
+	}
+	@include to(600px){
+		.button-main {
+			padding: 15px;
+		}
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		-webkit-backdrop-filter: blur(14px);
+		backdrop-filter: blur(14px);
+		transition: .25s ease-out;
+		opacity: 1;
+		z-index: -1;
+	}
+	&.headroom--top {
+		// transform: translateY(10px);
+	}
+	&.headroom--top:after {
+		// opacity: 0;
+	}
+	&:not(.headroom--top) {
+	}
+	&.headroom--not-top &__logo-wrap {
+		width: 124px;
+		@include to(1024px){
+			width: 84px;
+		}
+		@media screen and (max-width:600px){
+			width: 70px;
+		}
+	}
+	&__left {
+		display: flex;
+		align-items: center;
+		padding-right: var(--between-margin);
+		height: var(--header-h);
+		gap: var(--inner-gap);
+		@include from(1025px){
+			border-right: 1px solid rgba(239, 240, 247, 0.20);
+		}
+		@include to(600px){
+			svg {
+				height: 29px;
+				width: auto;
+			}
+		}
+	}
+	&__center {
+		display: flex;
+		align-items: center;
+		padding-right: var(--between-margin);
+		padding-left: var(--between-margin);
+		height: var(--header-h);
+		flex-grow: 1;
+		gap: var(--inner-gap);
+		@include from(1025px){
+			.header__link {
+				margin-right: auto;
+			}
+		}
+		@include to(1024px){
+			justify-content: flex-end;
+			padding: 0;
+		}
+	}
+	&__right {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		padding-left: var(--between-margin);
+		height: var(--header-h);
+		gap: var(--inner-gap);
+		@include from(1025px){
+			border-left: 1px solid rgba(239, 240, 247, 0.20);
+		}
+	}
+	&__link {
+		color: var(--color-white);
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		svg {
+			margin-right: 20px;
+			@include to(1360px){
+				display: none;
+			}
+		}
+		@include from-to(1025px, 1359px){
+			span {
+				display: none;
+			}
+			svg {
+				display: block;
+				margin-right: 0;
+			}
+		}
+		@include to(1024px){
+			svg {
+				display: block;
+				width: 50px;
+				height: 50px;
+				margin: 0;
+			}
+			span {
+				display: none;
+			}
+		}
+		@media (hover: hover) {
+			& span {
+				position: relative;
+			}
+			& span:before {
+				content: '';
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 1px;
+				background-color: var(--color-white);
+				transform-origin: left;
+				transition: .25s ease-out;
+				transform: scaleX(0);
+			}
+			&:hover span:before {
+				transform: scaleX(1);
+			}
+		}
+	}
+	&__menu-open {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		svg {
+			margin-left: 12px;
+			width: 24px;
+			height: 24px;
+		}
+		@include to(1240px){
+			svg {
+				margin-left: 0;
+			}
+			span {
+				display: none;
+			}
+		}
+	}
+	@include to(1024px){
+		&__center>.text-style-1920-body-titles {
+			display: none;
+		}
+	}
+}
+
+
+
+
+.mobile-callback-popup {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	height: 100%;
+	// height: fill-available;
+	// height: -moz-available;          /* WebKit-based browsers will ignore this. */
+	min-height: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+	background-color: rgba($color-black, 0.8);
+	z-index: 61 !important;
+	display: flex;
+	flex-direction: column;
+	align-content: flex-end;
+	justify-content: flex-end;
+	padding: 10px;
+	line-height: 100%;
+	opacity: 0;
+	visibility: hidden;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+	}
+	&>* {
+		text-decoration: none;
+		width: 100%;
+		height: 50px;
+		font-size: 14px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: var(--color-gradient);
+		border-radius: 100px;
+		color: var(--color-black);
+		font-family: $default-font;
+		text-transform: uppercase;
+
+	}
+	&>:nth-child(n+2) {
+	  	margin-top: 10px;
+	}
+	&__close {
+		// background-color: var(--color-new-blue);
+		background-color: var(--color-black);
+		color: var(--color-white);
+		border-radius: 100px;
+		border: 1px solid var(--Stroke, #36363A);
+		background: var(--Black, #1A1A1D);
+	}
+}

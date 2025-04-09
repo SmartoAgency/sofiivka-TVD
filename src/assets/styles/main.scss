@@ -1,0 +1,46 @@
+@import './assets/vars';  // переменные
+@import './assets/smart-grid';  // mixins smartgrid.js
+// libraries
+@import './libs';
+
+// assets
+@import './assets/mixins';  // миксины
+@import './assets/fonts';  // шрифты
+@import './assets/base';  // общие стили
+@import './assets/animation';  // анимации
+@import './assets/class'; // main style
+@import './assets/interface'; // main style
+@import './assets/breadcrubs'; // main style
+
+
+// sass dima
+@import './header';
+@import './footer';
+@import './404';
+@import './loader';
+@import './menu';
+
+@import '../../pug/components/form/form';
+@import '../../pug/components/toster/toster';
+@import './components/button-primary';
+@import './components/delimiter';
+@import './components/construction-card';
+@import './components/vrtour-item';
+@import './components/sticky-block';
+@import './layouts/inner-page-head';
+
+
+//@import 'pages/contacts';
+//@import 'pages/contact';
+//@import 'pages/home';
+@import './assets/templates'; // main style
+@import 'components/info-label';
+@import 'components/home-menu';
+@import 'components/home-oselya-label';
+@import 'components/card';
+@import 'components/installment-block';
+@import 'components/social-icon';
+@import './layouts/contact-screen';
+@import 'components/callback-popup';
+@import 'components/build-popup';
+@import 'components/mobile-image-swipe';

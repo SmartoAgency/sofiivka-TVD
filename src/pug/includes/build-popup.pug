@@ -1,0 +1,104 @@
+- 
+  var buildPopupList = [
+    {
+        name: "Черга 1",
+        count: "96 квартир",
+        label: "Побудовано",
+        build_end: "4 квартал 2016",
+        expluatation_date: "1 квартал 2017",
+    },
+    {
+        name: "Черга 2",
+        count: "88 квартир",
+        label: "Побудовано",
+        build_end: "3 квартал 2017",
+        expluatation_date: "4 квартал 2017",
+    },
+    {
+        name: "Черга 3",
+        count: "160 квартир",
+        label: "Побудовано",
+        build_end: "4 квартал 2019",
+        expluatation_date: "1 квартал 2020",
+    },
+    {
+        name: "Черга 4",
+        count: "96 квартир",
+        label: "Побудовано",
+        build_end: "1 квартал 2021",
+        expluatation_date: "2 квартал 2021",
+    },
+    {
+        name: "Черга 5",
+        count: "144 квартир",
+        label: "Побудовано",
+        build_end: "3 квартал 2021",
+        expluatation_date: "4 квартал 2021",
+    },
+    {
+        name: "Черга 6",
+        count: "117 квартир",
+        label: "Побудовано",
+        build_end: "4 квартал 2022",
+        expluatation_date: "1 квартал 2023",
+    },
+    {
+        name: "Черга 7",
+        count: "133 квартир",
+        label: "Побудовано",
+        build_end: "2 квартал 2023",
+        expluatation_date: "3 квартал 2023",
+    },
+    {
+        name: "Черга 8",
+        count: "124 квартир",
+        label: "Побудовано",
+        build_end: "4 квартал 2023",
+        expluatation_date: "1 квартал 2024",
+    },
+    {
+        name: "Черга 9",
+        count: "130 квартир",
+        label: "ОБРАТИ КВАРТИРУ",
+        build_end: "1 квартал 2025",
+        expluatation_date: "2 квартал 2025",
+        link: true
+    },]
+
+.build-popup(data-build-popup data-lenis-prevent)
+  <svg data-build-popup-close class="build-popup__close" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.14645 5.14645C5.34171 4.95118 5.65829 4.95118 5.85355 5.14645L12.5 11.7929L19.1464 5.14645C19.3417 4.95118 19.6583 4.95118 19.8536 5.14645C20.0488 5.34171 20.0488 5.65829 19.8536 5.85355L13.2071 12.5L19.8536 19.1464C20.0488 19.3417 20.0488 19.6583 19.8536 19.8536C19.6583 20.0488 19.3417 20.0488 19.1464 19.8536L12.5 13.2071L5.85355 19.8536C5.65829 20.0488 5.34171 20.0488 5.14645 19.8536C4.95118 19.6583 4.95118 19.3417 5.14645 19.1464L11.7929 12.5L5.14645 5.85355C4.95118 5.65829 4.95118 5.34171 5.14645 5.14645Z" fill="#1A1A1D"/>
+  </svg>
+  .build-popup__bg
+  .build-popup__content
+    .build-popup__title 
+      .text-style-1920-h-1 Будівництво
+      button(type="button" data-callback-popup-call data-build-popup-close).button-main 
+        span ЗВОРОТНІЙ ДЗВІНОК
+    table.build-popup__table
+      tr.hide-on-mobile
+        td
+        td
+        td.text-style-1920-body-titles Завершення будівництва:
+        td.text-style-1920-body-titles Введення в експлуатацію:
+        td
+      each val in buildPopupList
+        tr.build-popup__item
+          td.text-style-1920-body-titles= val.name
+          td.build-popup__label= val.count
+          td.build-popup__item-build-end.text-color-black 
+            .show-on-mobile.text-style-1920-body-titles Завершення будівництва:
+            div #{val.build_end}
+          td.build-popup__item-expluatation-date.text-color-black 
+            .show-on-mobile.text-style-1920-body-titles Введення в експлуатацію:
+            div #{val.expluatation_date}
+          td.build-popup__item-label.text-color-black
+            if (val.link)
+              a(href="/plannings").button-main 
+                span #{val.label} 
+            else 
+              div.build-popup__label 
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M18.6131 7.5274C18.874 7.77393 18.8857 8.18532 18.6392 8.44627L11.0812 16.4463L10.6359 16.9176L10.1635 16.4735L5.72149 12.2975C5.45994 12.0516 5.44724 11.6403 5.69313 11.3787C5.93901 11.1172 6.35037 11.1045 6.61193 11.3504L10.5815 15.0822L17.6942 7.55351C17.9408 7.29256 18.3521 7.28087 18.6131 7.5274Z" fill="#1A1A1D"/>
+                </svg>
+                span #{val.label}

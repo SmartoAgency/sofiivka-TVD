@@ -1,0 +1,65 @@
+.callback-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity 0.25s ease-out, visibility 0.25s ease-out;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+    }
+
+    &__close {
+        position: absolute;
+        right: var(--page-side-fields);
+        top: var(--page-side-fields);
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        z-index: 3;
+    }
+    @media (hover: hover) {
+        &__close {
+            transform-origin: center;
+            transition: transform 0.25s ease-out;
+            &:hover {
+                transform: rotate(90deg);
+            }
+        }
+    }
+    &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(30, 30, 34, 0.70);
+    }
+    &__content {
+        position: relative;
+        z-index: 2;
+        width: 50%;
+        @include to(1024px){
+            width: 100%;
+        }
+        .contact-screen {
+            width: 100%;
+            height: 100%;
+        }
+        .contact-screen__form {
+            width: auto;
+            height: 100%;
+        }
+        .contact-screen-form {
+        }
+    }
+}

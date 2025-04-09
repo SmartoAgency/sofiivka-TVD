@@ -1,0 +1,32 @@
+extends ../layout/main
+    
+block meta
+  title= '404'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(src='./assets/scripts/vendors.bundle.js')
+  script(src='./assets/scripts/index.bundle.js')
+
+block content
+  .page404
+    .page404__img
+      img(src="./assets/images/404.jpg", alt="", srcset="")
+    .page404__text
+      .page404__title 404
+      .text-style-1920-h-1.text-color-body-description Упс, щось пішло не так...
+      .page404__buttons
+        a(class="button-main button-main--light" href="#")
+          span НАЗАД
+        a(class="button-main button-main--light" href="#")
+          span НА ГОЛОВНУ
+        a(class="button-main" href="#")
+          span.hide-on-mobile ОБРАТИ КВАРТИРУ
+          span.hide-on-desktop.hide-on-tablet КВАРТИРИ
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+block header
+  include ../includes/header.pug
+

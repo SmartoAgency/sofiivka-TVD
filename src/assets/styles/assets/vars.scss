@@ -1,0 +1,205 @@
+$default-font: "Geologica",
+	sans-serif;
+$default-font2: "Dela Gothic One",
+	sans-serif;
+
+$mc: #fff;
+$mc2: #FF554C;
+$mc3: #E5DF06;
+$mc4: #4F90B6;
+$gray: rgb(135, 135, 151);
+$text: #22223E;
+$wc: #fff;
+$bc: #000;
+$bc2: #000;
+$light: #fff;
+$dark: #000;
+$gold: #CFA46E;
+$gold2: #CFA46E;
+
+$color-black: rgba(26,26,29,1);
+$color-body-description: rgba(151,154,175,1);
+$color-stroke: rgba(54,54,58,1);
+$color-white: rgba(239,240,247,1);
+$color-yellow: rgba(224,221,0,1);
+$color-gradient: linear-gradient(to bottom, rgba(224,221,0,0.878) 0%,rgba(125,185,40,0.490) 100%);
+
+:root {
+	--color-black: #1a1a1d;
+	--color-body-description: #979aaf;
+	--color-stroke: #36363a;
+	--color-white: #eff0f7;
+	--color-yellow: #e0dd00;
+	--color-gradient: linear-gradient(to bottom, rgba(224,221,0,0.878) 0%,rgba(125,185,40,0.490) 100%);
+}
+
+.text-color-black {
+	color: rgba(26,26,29,1);
+}
+.text-color-body-description {
+	color: rgba(151,154,175,1);
+}
+.text-color-stroke {
+	color: rgba(54,54,58,1);
+}
+.text-color-white {
+	color: rgba(239,240,247,1);
+}
+.text-color-yellow {
+	color: rgba(224,221,0,1);
+}
+
+
+:root {
+	--in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
+	--header-h: 90px;
+	--logo-w: 155px;
+	--sliceFigure: 239px;
+	--sliceFigure-big: 541px;
+	--page-side-fields: 40px;
+	--section-v-offset: 210px;
+	--button-color: #001A58;
+}
+
+@media screen and (max-width: 1440px) {
+	:root {
+		--header-h: 86px;
+		--logo-w: 120px;
+		--sliceFigure-big: 362px;
+		--section-v-offset: 100px;
+	}
+}
+
+@media screen and (max-width:1024px){
+	:root {
+		--page-side-fields: 20px;
+		--section-v-offset: 210px;
+	}
+}
+
+
+@media screen and (max-width: 1024px) {
+	:root {
+		--header-h: 100px;
+		--logo-w: 90px;
+		--sliceFigure-big: 44px;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	:root {
+		--header-h: 66px;
+		--section-v-offset: 80px;
+		--page-side-fields: 12px;
+	}
+}
+
+@mixin text-style-375-h-1() {
+	font-size: 32px;
+	font-family: Dela Gothic One;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 100%;
+	letter-spacing: -0.03em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+@mixin text-style-375-h-2() {
+	font-size: 20px;
+	font-family: Geologica;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+@mixin text-style-1920-h-1() {
+	font-size: min(pxWidthInVw(60), 60px);
+	// font-size: 60px;
+	font-family: Dela Gothic One;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 100%;
+	letter-spacing: -0.03em;
+	text-decoration: none;
+	text-transform: uppercase;
+	@media screen and (max-width:1024px){
+		font-size: 60px;
+	}
+	@media screen and (max-width:600px){
+		@include text-style-375-h-1;
+	}
+}
+@mixin text-style-1920-h-2() {
+	// font-size: 24px;
+	font-size: min(pxWidthInVw(24), 24px);
+	font-family: Geologica;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 120%;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+	text-transform: uppercase;
+	@media screen and (max-width:1024px){
+		font-size: 24px;
+	}
+	@media screen and (max-width:600px){
+		@include text-style-375-h-2;
+	}
+}
+@mixin text-style-1920-body-titles() {
+	font-size: 16px;
+	font-family: Geologica;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 140%;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+}
+@mixin text-style-1920-body() {
+	font-size: 16px;
+	font-family: Geologica;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 140%;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+	text-transform: none;
+}
+@mixin text-style-1920-button() {
+	font-size: 14px;
+	font-family: Geologica;
+	font-weight: 300;
+	font-style: normal;
+	line-height: 140%;
+	letter-spacing: -0.02em;
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+
+.text-style-1920-h-1 {
+	@include text-style-1920-h-1;
+}
+.text-style-1920-h-2 {
+	@include text-style-1920-h-2;
+}
+.text-style-1920-body-titles {
+	@include text-style-1920-body-titles;
+}
+.text-style-1920-body {
+	@include text-style-1920-body;
+}
+.text-style-1920-button {
+	@include text-style-1920-button;
+}
+.text-style-375-h-1 {
+	@include text-style-375-h-1;
+}
+.text-style-375-h-2 {
+	@include text-style-375-h-2;
+}

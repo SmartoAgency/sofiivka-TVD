@@ -1,0 +1,15 @@
+.home-oselya-label {
+    background: rgba(30, 30, 34, 0.40);
+    backdrop-filter: blur(20px);
+    padding: 28px;
+    width: 320px;
+    text-align: center;
+    &>:nth-child(n+2) {
+        margin-top: 12px;
+    }
+    img {
+        height: 48px;
+        width: auto;
+        margin: auto;
+    }
+}

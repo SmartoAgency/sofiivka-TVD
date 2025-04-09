@@ -1,0 +1,55 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'хід робіт'
+    var id_page = 'id-page-construction'
+    var class_page = 'class-page-construction'
+    var breadcrumbsSubitem = [
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/construction.js')
+block content
+  .construction-page-bg
+    img(data-inner-page-bg src="./assets/images/construction-bg.jpg", alt="", srcset="" loading="lazy")
+  .inner-page-head
+    include ../includes/breadcrumbs.pug 
+    .inner-page-head__title хід робіт
+  .construction-container
+    .construction-container__content
+      each val in [0,1,2,3,4,5,6,7,8,9]
+        a(href="/single-construction").construction-card
+          .construction-card__text
+            .construction-card__text-title
+              .text-style-1920-h-1 18
+              .construction-card__title.text-style-1920-h-4 2025 Червень
+            button(type="button" data-popup-call).construction-card__button
+              span ПЕРЕГЛЯНУТИ
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.999986 8.49992L1.49999 8.49992L12.7929 8.49992L7.64643 13.6464L7.29288 13.9999L7.99999 14.707L8.35354 14.3535L14.3535 8.35348L14.7071 7.99992L14.3535 7.64637L8.35354 1.64637L7.99999 1.29282L7.29288 1.99992L7.64643 2.35348L12.7929 7.49992L1.49999 7.49992L0.999986 7.49992L0.999986 8.49992Z" fill="white"/>
+              </svg>
+          .construction-card__img-wrapper
+            .construction-card__img
+              .construction-card__labels-wrapper
+                .construction-card__label 14 фото
+                .construction-card__label 1 відео
+              img(src="./assets/images/test.jpg", alt="", srcset="" loading="lazy")
+  button(type="button" data-popup-call).button-main.construction-load-more
+    span Дивитись більше звітів
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.49988 14.3646L8.14633 14.011L2.48948 8.35416C2.29421 8.1589 2.29421 7.84231 2.48948 7.64705C2.68474 7.45179 3.00132 7.45179 3.19658 7.64705L7.99988 12.4504L7.99988 2.34375C7.99988 2.06761 8.22374 1.84375 8.49988 1.84375C8.77603 1.84375 8.99988 2.06761 8.99988 2.34375L8.99988 12.4504L13.8032 7.64705C13.9984 7.45179 14.315 7.45179 14.5103 7.64705C14.7056 7.84231 14.7056 8.1589 14.5103 8.35416L8.85344 14.011L8.49988 14.3646Z" fill="#1A1A1D"/>
+    </svg>
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

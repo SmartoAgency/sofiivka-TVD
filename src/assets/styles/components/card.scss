@@ -1,0 +1,239 @@
+.card {
+    background-color: var(--color-white);
+    padding: 20px 40px;
+    color: var(--color-black);
+    cursor: pointer;
+    text-decoration: none;
+    @include to(1024px){
+        padding: 20px;
+    }
+    @include to(600px){
+        padding: 12px;
+    }
+    &__content {
+        @include from(1025px){
+            @include row-flex();
+        }
+        @include to(1024px){
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: auto;
+            gap: 0px 20px; 
+            grid-template-areas: 
+                "title text1"
+                "img img"
+                "text2 arrow"; 
+        }
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__left-top {
+        color: var(--color-black);
+        @include from(1025px){
+            @include size(12);
+            @include shift(0);
+        }
+        @include to(1024px){
+            grid-area: title;
+            @include text-style-1920-body-titles;
+        }
+    }
+    &__left-bottom {
+        &>:first-child {
+            color: var(--color-black);
+        }
+        @include from(1025px){
+            @include size(12);
+            @include shift(0);
+        }
+        
+    }
+    &__right-top {
+        &>:first-child {
+            color: var(--color-black);
+        }
+        @include from(1025px){
+            @include size(12);
+            @include shift(0);
+            text-align: right;
+        }
+        @include to(1024px){
+            grid-area: text1;
+            text-align: right
+        }
+        
+    }
+    &__right-bottom {
+        @include from(1025px){
+            @include size(12);
+            @include shift(0);
+            text-align: right;
+        }
+        @include to(1024px){
+            text-align: right;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+        }
+        svg {
+            @include to(600px){
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+    &__img {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        @include from(1025px){
+            @include size(24);
+            @include shift(0);
+        }
+        @include to(1024px){
+            grid-area: img;
+        }
+        &-wrap {
+            position: relative;
+            padding-bottom: 50%;
+            @include to(1024px){
+                padding-bottom: 67.5%;
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+    
+    @media (hover: hover) {
+        &__right-bottom svg path {
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+        &:hover &__right-bottom path {
+            animation: cardLinkAnimation 1s infinite;
+        }
+    }
+}
+
+.card-low {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 20px 40px 20px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    @include to(1024px){
+        padding: 20px;
+        color: var(--color-stroke);
+    }
+    @include to(600px){
+        padding: 12px;
+    }
+    &__title {
+        grid-area: title;
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+        color: var(--color-black);
+        @include to(1024px){
+            display: flex;
+            justify-content: flex-start;align-items: center;
+        }
+    }
+    &__content {
+        display: grid; 
+        grid-template-columns: 1fr auto auto; 
+        grid-template-rows: auto 45px auto; 
+        gap: 0px 20px; 
+        grid-template-areas: 
+            "title text1 ."
+            "img text1 ."
+            "img text2 arrow"; 
+
+        @include to(1024px){
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: auto;
+            gap: 0px 20px; 
+            grid-template-areas: 
+                "title text1"
+                "img img"
+                "text2 arrow"; 
+        }
+    }
+    &__text1 {
+        grid-area: text1;
+        &>:first-child {
+            color: var(--color-black);
+        }
+        @include to(1024px){
+            text-align: right;
+        }
+    }
+    &__text2 {
+        grid-area: text2;
+        text-transform: uppercase;
+        &>:first-child {
+            color: var(--color-black);
+        }
+        @include from(1025px){
+            margin-top: 40px;
+        }
+    }
+    &__img {
+        grid-area: img;
+        @include to(1024px){
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        &-wrap {
+            padding-bottom: 67.5%;
+            position: relative;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    &__arrow {
+        grid-area: arrow;
+        display: flex;
+        align-items: flex-end;
+        @include to(1024px){
+            justify-content: flex-end;
+        }
+        svg {
+            @include to(600px){
+                width: 50px;
+                height: 50px;
+            }
+        }
+    }
+    @media (hover: hover) {
+        &__arrow svg path {
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+        &:hover &__arrow path {
+            animation: cardLinkAnimation 1s infinite;
+        }
+    }
+}
+
+@keyframes cardLinkAnimation {
+    0% {
+        transform: translateX(-120%) translateY(-120%); 
+    }
+    100% {
+        transform: translateX(120%) translateY(120%); 
+    }
+}

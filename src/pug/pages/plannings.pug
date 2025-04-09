@@ -1,0 +1,100 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'plannings'
+    var id_page = 'id-page-plannings'
+    var class_page = 'class-page-plannings'
+    var breadcrumbsSubitem = [
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/plannings.bundle.js')
+block content
+  .construction-page-bg
+    img(data-inner-page-bg src="./assets/images/plannings-bg.jpg", alt="", srcset="" loading="lazy")
+  .inner-page-head
+    .inner-page-head__title галерея планувань
+    include ../includes/breadcrumbs.pug
+  .plannings
+    .plannings__content
+      .plannings__filter.js-s3d-filter.js-s3d-filter__checkboxes
+        .plannings__filter-group
+          div.text-color-body-description КІМНАТНІСТЬ:
+          label.planning-checkbox(for="rooms1")
+            input#rooms1(type="checkbox" name="" value="1" data-type="rooms" data-rooms="1")
+            span 1-к
+          label.planning-checkbox(for="rooms2")
+            input#rooms2(type="checkbox" name="" value="2" data-type="rooms" data-rooms="2")
+            span 2-к
+          label.planning-checkbox(for="rooms3")
+            input#rooms3(type="checkbox" name="" value="3" data-type="rooms" data-rooms="3")
+            span 3-к
+          label.planning-checkbox(for="parking")
+            input#parking(type="checkbox", name="" value="parking" data-type="parking" data-parking="1")
+            span Паркінги
+          label.planning-checkbox(for="level2")
+            input#level2(type="checkbox", name="" value="level" data-type="level" data-level="2")
+            span Дворівневі
+          label.planning-checkbox(for="commercial")
+            input#commercial(type="checkbox", name="" value="_type_object" data-type="_type_object" data-_type_object="2")
+            span Комерція
+        .plannings__filter-group
+          img(src="./assets/images/eoselya-light.svg").plannings__filter-image-label
+          label.planning-checkbox(for="eoselya")
+            input#eoselya(type="checkbox", name="" value="eoselya" data-type="eoselya" data-eoselya="1")
+            span Так
+        .plannings__filter-group.plannings__filter-group--range
+          <div class="Range js-filter-range">
+            <div class="Range__title text-color-body-description">ПЛОЩА</div>
+            <input class="Range__input Range__input--first" data-type="area" data-border="min"/>
+            <input class="Range__input" data-type="area" data-border="max"/>
+            <div class="Range__item ">
+              <input class="js-s3d-filter__area--input " data-type="area" data-min="0" data-max="20" data-from="0" data-to="20">
+            </div>
+          </div>
+        .plannings__filter-group.plannings__filter-group--range
+          <div class="Range js-filter-range">
+            <div class="Range__title text-color-body-description">ПОВЕРХ</div>
+            <input class="Range__input Range__input--first" data-type="floor" data-border="min"/>
+            <input class="Range__input" data-type="floor" data-border="max"/>
+            <div class="Range__item ">
+              <input class="js-s3d-filter__floor--input " data-type="floor" data-min="0" data-max="20" data-from="0" data-to="20">
+            </div>
+          </div>
+        .plannings__filter-group
+          div.text-color-body-description ДАТА ЗДАЧІ:
+          label.planning-checkbox(for="queue8")
+            input#queue8(type="checkbox", name="" value="queue" data-type="queue" data-queue="8")
+            span 8 черга здана в експлуатацію
+          label.planning-checkbox(for="queue9")
+            input#queue9(type="checkbox", name="" value="queue" data-type="queue" data-queue="9")
+            span 9 черга ІІ квартал 2025
+        .planning-reset-button(id="resetFilter")
+          span СКИНУТИ ФІЛЬТРИ
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.64645 3.64645C3.84171 3.45118 4.15829 3.45118 4.35355 3.64645L8 7.29289L11.6464 3.64645C11.8417 3.45118 12.1583 3.45118 12.3536 3.64645C12.5488 3.84171 12.5488 4.15829 12.3536 4.35355L8.70711 8L12.3536 11.6464C12.5488 11.8417 12.5488 12.1583 12.3536 12.3536C12.1583 12.5488 11.8417 12.5488 11.6464 12.3536L8 8.70711L4.35355 12.3536C4.15829 12.5488 3.84171 12.5488 3.64645 12.3536C3.45118 12.1583 3.45118 11.8417 3.64645 11.6464L7.29289 8L3.64645 4.35355C3.45118 4.15829 3.45118 3.84171 3.64645 3.64645Z" fill="#EFF0F7"/>
+          </svg>
+
+      .plannings__list(data-planning-list data-not-found-title="Планування не знайдено")
+        for val in [1,2]
+          a(href="#").planning-card
+            .planning-card__top 2-к / 247.4 м²
+            .planning-card__image
+              img(src="./assets/images/eoselya.svg").planning-card__image-label
+              .planning-card__image-wrap
+                img(src="./assets/images/test-plan.png", alt="", srcset="")
+            .planning-card__bottom Будинок: 3 Секція: 2 Поверх: 15
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug

@@ -1,0 +1,67 @@
+-
+  var list = [
+    {number: "01.",
+    title: "Клас:",
+    description: "комфорт",
+    icon: "./assets/images/home/characteristics/Rooms.svg"},
+    {number: "02.",
+    title: "Будівництво:",
+    description: "монолітно - каркасне",
+    icon: "./assets/images/home/characteristics/Construction.svg"},
+    {number: "03.",
+    title: "Паркінг:",
+    description: "підземний",
+    icon: "./assets/images/home/characteristics/Parking 2.svg"},
+    {number: "04.",
+    title: "Утеплення фасаду:",
+    description: "150 мм",
+    icon: "./assets/images/home/characteristics/Insulation material.svg"},
+    {number: "05.",
+    title: "Котел:",
+    description: "газовий, двохфункційний, 24 кВт",
+    icon: "./assets/images/home/characteristics/Gas boiler.svg"},
+    {number: "06.",
+    title: "Стяжка:",
+    description: "цементно-піщана з армуванням",
+    icon: "./assets/images/home/characteristics/Screed.svg"},
+    {number: "07.",
+    title: "Штукатурка:",
+    description: "цементно-вапняна",
+    icon: "./assets/images/home/characteristics/Stucco.svg"},
+    {number: "08.",
+    title: "Стіни та перегородки:",
+    description: "з керамічної цегли",
+    icon: "./assets/images/home/characteristics/Wall 2.svg"},
+    {number: "09.",
+    title: "Вікна:",
+    description: "панорамні, енергозберігаючі (5 камерний профіль, 2 камерний склопакет)",
+    icon: "./assets/images/home/characteristics/Windows 1.svg"},
+    {number: "10.",
+    title: "Опалення:",
+    description: "розведені труби опалення, встановлені радіатори",
+    icon: "./assets/images/home/characteristics/Heating.svg"},
+    {number: "11.",
+    title: "Двері:",
+    description: "металеві з МДФ накладками",
+    icon: "./assets/images/home/characteristics/Door.svg"},
+    {number: "12.",
+    title: "Лічильники:",
+    description: "газ, вода та світло",
+    icon: "./assets/images/home/characteristics/Counters.svg"}, 
+  ]
+.home-characteristics.g_side_padding.g_v_padding#characteristics
+  <picture>
+    <source srcset="./assets/images/home/characteristics/bg.jpg" media="(min-width: 601px)">
+    <source srcset="./assets/images/home/characteristics/bg-mobile.jpg" media="(max-width: 600px)">
+    <img class="home-characteristics__bg" src="#", alt="", srcset="" loading="lazy"  data-bg-paralax/>
+  </picture>
+  .home-characteristics__title.text-style-1920-h-1(data-split-lines) Параметри
+  .home-characteristics__content
+    each val in list
+      .home-characteristics__item
+        .home-characteristics__item-icon-wrap
+          img(src=val.icon, alt="")
+        .home-characteristics__item-text
+          .home-characteristics__item-number.text-color-body-description= val.number
+          .home-characteristics__item-title.text-style-1920-h-2= val.title
+          .home-characteristics__item-description.text-color-body-description= val.description

@@ -1,0 +1,133 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'project'
+    var id_page = 'home'
+    var class_page = 'home '
+    var home_menu = [
+      {title: "ПРО ПРОЄКТ", url: '#about'},
+      {title: "ПЕРЕВАГИ", url: '#advantages'},
+      {title: "ПЛАНУВАННЯ", url: '#plannings'},
+      {title: "ХАРАКТЕРИСТИКИ", url: '#characteristics'},
+      {title: "АЕРООБЛІТ", url: '#aeroview'},
+      {title: "КАРТА", url: '#infrastructure'},
+      {title: "ХІД РОБІТ", url: '#construction'},
+      {title: "ДОКУМЕНТИ", url: '#documents'},
+      {title: "ЗАБУДОВНИК", url: '#developer'},
+      {title: "ГАЛЕРЕЯ", url: '#gallery'},
+      {title: "КОНТАКТИ", url: '#contact-screen'},
+    ];
+    var slides = [
+      './assets/images/home/home-front-screen.jpg',
+      './assets/images/home/home-about-screen.jpg'
+    ]
+
+block meta
+  title= 'Софіївка —  дім там,  де добре'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/home.bundle.js')
+block content
+  .home-menu(data-home-menu data-lenis-prevent)
+    <svg class="home-menu__open" data-home-menu-open width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" rx="32" fill="#292A30" fill-opacity="0.2"/>
+      <rect x="0.5" y="0.5" width="63" height="63" rx="31.5" stroke="#EFF0F7" stroke-opacity="0.2"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M24.252 26.2472L24.752 26.2472L33.0351 26.2472L33.5351 26.2472L33.5351 27.2472L33.0351 27.2472L24.752 27.2472L24.252 27.2472L24.252 26.2472ZM24.252 31.5L24.752 31.5L39.2474 31.5L39.7474 31.5L39.7474 32.5L39.2474 32.5L24.752 32.5L24.252 32.5L24.252 31.5ZM24.252 36.7528L24.752 36.7528L39.2474 36.7528L39.7474 36.7528L39.7474 37.7528L39.2474 37.7528L24.752 37.7528L24.252 37.7528L24.252 36.7528Z" fill="#EFF0F7"/>
+    </svg>
+    .home-menu__content
+      <svg class="home-menu__logo" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="32" fill="url(#paint0_linear_472_3792)"/>
+        <path d="M45 22.5534L32.0388 20.0369L19 22.5534V26.0679L32.0388 27.0369L45 26.0679V22.5534Z" fill="#EFF0F7"/>
+        <path d="M32.0388 29.0369L19 29.7492V30.7081V32.3656V33.3108L32.0388 34.0369L45 33.3108V32.3656V30.7081V29.7492L32.0388 29.0369Z" fill="#EFF0F7"/>
+        <path d="M19 40.5203L32.0388 43.0369L45 40.5203V37.0059L32.0388 36.0369L19 37.0059V40.5203Z" fill="#EFF0F7"/>
+        <defs>
+        <linearGradient id="paint0_linear_472_3792" x1="0" y1="0" x2="74.8501" y2="17.4443" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#E0DD00"/>
+        <stop offset="1" stop-color="#7DB928"/>
+        </linearGradient>
+        </defs>
+      </svg>
+      <svg class="home-menu__close" data-home-menu-close width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="32" fill="#EFF0F7"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M28 27.2928L28.3535 27.6464L32.5 31.7928L36.6464 27.6464L37 27.2928L37.7071 28L37.3535 28.3535L33.2071 32.5L37.3535 36.6464L37.7071 37L37 37.7071L36.6464 37.3535L32.5 33.2071L28.3535 37.3535L28 37.7071L27.2928 37L27.6464 36.6464L31.7928 32.5L27.6464 28.3535L27.2928 28L28 27.2928Z" fill="#1A1A1D"/>
+      </svg>
+      .text-style-1920-h-1.home-menu__title МЕНЮ
+      .home-menu__links
+        each val in home_menu
+          a(data-home-menu-link=val.url href=val.url).home-menu__item.text-style-1920-button= val.title
+  .home-front-screen
+    .home-front-screen__bg
+      .swiper-container(data-front-screen-slider)
+        .swiper-wrapper
+          each val in slides
+            .swiper-slide
+              picture 
+                source(srcset=val, media="(min-width: 601px)")
+                source(srcset=val, media="(max-width: 600px)")
+                img(src=val, alt="", srcset="", loading="lazy")
+              //- <picture>
+              //-   <source srcset="./assets/images/home/home-front-screen.jpg" media="(min-width: 601px)">
+              //-   <source srcset="./assets/images/home/home-front-screen@05.jpg" media="(max-width: 600px)">
+              //-   <img src="#", alt="", srcset="" loading="lazy"/>
+              //- </picture>
+      .home-front-screen__bg-overlay
+    .home-front-screen__content
+      .text-style-1920-h-1.home-front-screen__title
+        span.text-color-yellow Софіївка —  
+        span дім там, 
+        span де добре
+      .home-oselya-label
+        .text-style-1920-body СПІВПРАЦЮЄМО З ПРОГРАМОЮ
+        img(src="./assets/images/e-oselya.svg")
+      <svg data-home-down class="home-front-screen__down-arrow"   xmlns="http://www.w3.org/2000/svg" width="68" height="68" fill="none" viewBox="0 0 68 68">
+        <g class="spin-arrow__Spin spin-arrow__arrow">
+          <g data-home-down-arrow>
+            <path fill="#EFF0F7" transform="translate(0,-68)" fill-rule="evenodd" d="M34.5256 39.3185L41.6836 32.6079L42.3675 33.3374L34.3675 40.8374L34.0256 41.158L33.6836 40.8374L25.6836 33.3374L26.3675 32.6079L33.5256 39.3185L33.5256 25.4727L34.5256 25.4727L34.5256 39.3185Z" class="spin-arrow__icon" clip-rule="evenodd"/>
+            <path fill="#EFF0F7" fill-rule="evenodd" d="M34.5256 39.3185L41.6836 32.6079L42.3675 33.3374L34.3675 40.8374L34.0256 41.158L33.6836 40.8374L25.6836 33.3374L26.3675 32.6079L33.5256 39.3185L33.5256 25.4727L34.5256 25.4727L34.5256 39.3185Z" class="spin-arrow__icon" clip-rule="evenodd"/>
+          </g>
+          <path stroke="#EFF0F7" stroke-opacity=".2" d="M32 0.5H36C53.397 0.5 67.5 14.603 67.5 32V36C67.5 53.397 53.397 67.5 36 67.5H32C14.603 67.5 0.5 53.397 0.5 36V32C0.5 14.603 14.603 0.5 32 0.5Z"/>
+        </g>
+        <defs>
+          <clipPath id="spin-arrow__a" class="spin-arrow__clip0_987">
+            <path fill="#fff" d="M0 32C0 14.3269 14.3269 0 32 0H36C53.6731 0 68 14.3269 68 32V36C68 53.6731 53.6731 68 36 68H32C14.3269 68 0 53.6731 0 36V32Z"/>
+          </clipPath>
+        </defs>
+      </svg>
+      a(href="/plannings?filter_queue_8=8").info-label
+        <svg data-build-popup-open class="info-label__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.42431 12.0001C4.42431 7.81617 7.8161 4.42438 12 4.42438C16.1839 4.42438 19.5757 7.81617 19.5757 12.0001C19.5757 16.184 16.1839 19.5757 12 19.5757C7.8161 19.5757 4.42431 16.184 4.42431 12.0001ZM12 2.92438C6.98767 2.92438 2.92431 6.98774 2.92431 12.0001C2.92431 17.0124 6.98767 21.0757 12 21.0757C17.0123 21.0757 21.0757 17.0125 21.0757 12.0001C21.0757 6.98774 17.0123 2.92438 12 2.92438ZM13.4079 16.488L13.5395 15.917L13.5395 15.917C13.4717 15.9509 13.362 15.99 13.2105 16.0344C13.059 16.0788 12.9234 16.1009 12.8038 16.1009C12.5486 16.1009 12.3691 16.0566 12.2655 15.9677C12.1618 15.879 12.1099 15.7119 12.1099 15.4667C12.1099 15.3694 12.1259 15.2256 12.1579 15.0353C12.1897 14.845 12.2257 14.6759 12.2655 14.5278L12.7559 12.6819C12.8038 12.5128 12.8367 12.3267 12.8546 12.1236C12.8725 11.9207 12.8816 11.779 12.8816 11.6987C12.8816 11.3096 12.753 10.9935 12.4958 10.7504C12.2386 10.5072 11.8728 10.3856 11.3982 10.3856C11.1351 10.3856 10.8559 10.4353 10.5609 10.5347C10.2658 10.634 9.95682 10.7535 9.63386 10.893L9.50228 11.464C9.59792 11.4258 9.71259 11.3857 9.84617 11.3435C9.97974 11.3011 10.1104 11.2801 10.238 11.2801C10.4971 11.2801 10.6725 11.3265 10.7643 11.4196C10.8559 11.5126 10.9019 11.6775 10.9019 11.9143C10.9019 12.0455 10.8868 12.1903 10.857 12.3489C10.827 12.5074 10.7901 12.6756 10.7463 12.8532L10.2558 14.7054C10.212 14.9 10.1802 15.0745 10.1602 15.2287C10.1402 15.3831 10.1302 15.5344 10.1302 15.6823C10.1302 16.0629 10.2629 16.3769 10.528 16.6243C10.7932 16.8717 11.165 16.9955 11.6434 16.9955C11.9545 16.9955 12.2276 16.9521 12.4629 16.8654C12.6981 16.7787 13.0132 16.6529 13.4079 16.488ZM13.3211 8.99332C13.5505 8.76703 13.6651 8.49316 13.6651 8.17181C13.6651 7.85043 13.5504 7.57557 13.3211 7.34717C13.0919 7.11879 12.8158 7.00465 12.4927 7.00465C12.1697 7.00465 11.8927 7.11878 11.6614 7.34717C11.4302 7.5756 11.3145 7.85047 11.3145 8.17181C11.3145 8.49316 11.4302 8.76704 11.6614 8.99332C11.8927 9.21961 12.1698 9.33262 12.4927 9.33262C12.8158 9.33262 13.0919 9.2196 13.3211 8.99332Z" fill="#1A1A1D"/>
+        </svg>
+        .info-label__title.text-style-1920-body-titles ЧЕРГА
+        .info-label__text Здана в експлуатацію
+        .info-label__digit.text-style-1920-h-1 8
+      a(href="/plannings?filter_queue_9=9").info-label.info-label--reverse
+        <svg data-build-popup-open class="info-label__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.42431 12.0001C4.42431 7.81617 7.8161 4.42438 12 4.42438C16.1839 4.42438 19.5757 7.81617 19.5757 12.0001C19.5757 16.184 16.1839 19.5757 12 19.5757C7.8161 19.5757 4.42431 16.184 4.42431 12.0001ZM12 2.92438C6.98767 2.92438 2.92431 6.98774 2.92431 12.0001C2.92431 17.0124 6.98767 21.0757 12 21.0757C17.0123 21.0757 21.0757 17.0125 21.0757 12.0001C21.0757 6.98774 17.0123 2.92438 12 2.92438ZM13.4079 16.488L13.5395 15.917L13.5395 15.917C13.4717 15.9509 13.362 15.99 13.2105 16.0344C13.059 16.0788 12.9234 16.1009 12.8038 16.1009C12.5486 16.1009 12.3691 16.0566 12.2655 15.9677C12.1618 15.879 12.1099 15.7119 12.1099 15.4667C12.1099 15.3694 12.1259 15.2256 12.1579 15.0353C12.1897 14.845 12.2257 14.6759 12.2655 14.5278L12.7559 12.6819C12.8038 12.5128 12.8367 12.3267 12.8546 12.1236C12.8725 11.9207 12.8816 11.779 12.8816 11.6987C12.8816 11.3096 12.753 10.9935 12.4958 10.7504C12.2386 10.5072 11.8728 10.3856 11.3982 10.3856C11.1351 10.3856 10.8559 10.4353 10.5609 10.5347C10.2658 10.634 9.95682 10.7535 9.63386 10.893L9.50228 11.464C9.59792 11.4258 9.71259 11.3857 9.84617 11.3435C9.97974 11.3011 10.1104 11.2801 10.238 11.2801C10.4971 11.2801 10.6725 11.3265 10.7643 11.4196C10.8559 11.5126 10.9019 11.6775 10.9019 11.9143C10.9019 12.0455 10.8868 12.1903 10.857 12.3489C10.827 12.5074 10.7901 12.6756 10.7463 12.8532L10.2558 14.7054C10.212 14.9 10.1802 15.0745 10.1602 15.2287C10.1402 15.3831 10.1302 15.5344 10.1302 15.6823C10.1302 16.0629 10.2629 16.3769 10.528 16.6243C10.7932 16.8717 11.165 16.9955 11.6434 16.9955C11.9545 16.9955 12.2276 16.9521 12.4629 16.8654C12.6981 16.7787 13.0132 16.6529 13.4079 16.488ZM13.3211 8.99332C13.5505 8.76703 13.6651 8.49316 13.6651 8.17181C13.6651 7.85043 13.5504 7.57557 13.3211 7.34717C13.0919 7.11879 12.8158 7.00465 12.4927 7.00465C12.1697 7.00465 11.8927 7.11878 11.6614 7.34717C11.4302 7.5756 11.3145 7.85047 11.3145 8.17181C11.3145 8.49316 11.4302 8.76704 11.6614 8.99332C11.8927 9.21961 12.1698 9.33262 12.4927 9.33262C12.8158 9.33262 13.0919 9.2196 13.3211 8.99332Z" fill="#1A1A1D"/>
+        </svg>
+        .info-label__title.text-style-1920-body-titles ЧЕРГА
+        .info-label__text ІІ квартал 2025
+        .info-label__digit.text-style-1920-h-1 9
+  include ../includes/home/home-about-screen.pug
+  include ../includes/home/home-advantages-block.pug
+  include ../includes/home/home-plannings.pug
+  include ../includes/home/home-characteristics.pug
+  .home-iframe.g_v_padding#aeroview
+    .home-iframe__title.text-style-1920-h-1(data-split-lines) АЕРООБЛІТ
+    .home-iframe__content
+      //- iframe(src="https://lun.ua/uk/%D0%B6%D0%BA-%D1%81%D0%BE%D1%84%D1%96%D1%97%D0%B2%D0%BA%D0%B0-%D0%BB%D1%8C%D0%B2%D1%96%D0%B2/%D0%B0%D0%B5%D1%80%D0%BE%D0%BE%D0%B1%D0%BB%D1%96%D1%82", allowfullscreen="allowfullscreen", loading="lazy")
+      iframe(src="", allowfullscreen="allowfullscreen", loading="lazy")
+  include ../includes/home/home-infrastructure.pug
+  include ../includes/home/home-construction-screen.pug
+  include ../includes/home/home-double-screen.pug
+  include ../includes/home/home-gallery-screen.pug
+  include ../includes/contact-screen.pug
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
