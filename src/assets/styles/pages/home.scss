@@ -8,8 +8,6 @@
     padding-right: var(--page-side-fields);
     @include to(1024px){
         padding-bottom: 20px;
-    }
-    @include to(600px){
         height: calc(var(--vh, 1vh) * 100);
     }
     &__bg {

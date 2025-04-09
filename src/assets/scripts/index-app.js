@@ -63,7 +63,7 @@ const vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 window.addEventListener('resize', () => {
-    if (window.screen.width < 600) return;
+    if (window.screen.width < 1025) return;
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
