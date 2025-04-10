@@ -74,7 +74,7 @@ section.section-infrastructure#infrastructure
         each val in legendButton
           button(type="button" data-category=val.category data-marker).section-infrastructure__map-legend-button
             img(src=`./assets/images/markers/${val.icon}`, alt=`${val.title}`)
-            span #{val.title}
+            span !{val.title}
       .section-infrastructure__open-button.text-style-1920-button(data-infra-filter-close)
         span Cховати фільтри
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

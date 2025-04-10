@@ -38,3 +38,23 @@
   opacity: 1;
   margin-left: 12px;
 }
+
+.gm-style-iw-d {
+  color: var(--color-black) !important;
+  font-family: $default-font2;
+  a {
+    text-decoration: none;
+    color: var(--color-black) !important;
+  }
+  a:hover {
+    color: var(--color-yellow) !important;
+  }
+}
+
+.gm-style-iw-chr {
+  height: 10px;
+  padding-right: 0px;
+}
+.gm-style-iw-d {
+  padding-right: 40px;
+}
