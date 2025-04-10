@@ -10,6 +10,20 @@
         --gap: 20px;
         gap: var(--gap);
     }
+    &__load-more {
+        width: calc(75% - var(--gap));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        &>* {
+            margin-top: calc(var(--section-v-offset) * 0.5);
+        }
+        @include to(1024px){
+            width: 100%;
+            margin: auto;
+        }
+    }
 
     &__filter {
         padding: 40px;

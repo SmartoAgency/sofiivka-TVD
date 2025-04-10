@@ -5,101 +5,145 @@ import FilterController from './modules/filter/filterController.js';
 import FilterView from './modules/filter/filterView.js';
 import mockFlats from './modules/filter/flats.json';
 import { pushParams, removeParamsByRegExp } from './modules/history/history.js';
-import gsap from 'gsap';
 
-const SEARCH_PARAMS_FILTER_PREFIX = 'filter_';
-const currentFilteredFlatIds$ = new BehaviorSubject([]);
+planningsGallery();
 
-const flats = mockFlats.reduce((acc, flat) => {
-    acc[flat.id] = flat;
-    return acc;
-}, {})
+async function planningsGallery() {
+    
+    const SEARCH_PARAMS_FILTER_PREFIX = 'filter_';
+    const currentFilteredFlatIds$ = new BehaviorSubject([]);
 
-currentFilteredFlatIds$.subscribe((ids) => {
-    const $container = document.querySelector('[data-planning-list]');
-    gsap.timeline()
-        .to('[data-planning-list]>*', {
-            autoAlpha: 0,
-            duration: 0.5,
-        })
-        .add(() => {
-            if (!ids.length) {
-                return $container.innerHTML = `
-                    <div class="text-style-1920-h-2">
-                        ${$container.getAttribute('data-not-found-title')}
-                    </div>
-                `;
+    const fetchedFlats = await getFlats();
+
+    const flats = fetchedFlats.reduce((acc, flat) => {
+        acc[flat.id] = flat;
+        return acc;
+    }, {})
+
+
+    let paginationData = [];
+    let currentPage$ = new BehaviorSubject(1);
+    let totalPages = 0;
+    const portion = 8;
+
+    function preparePgination(flats = []) {
+        const portionedFlats = [];
+        const length = flats.length;
+        const totalPages = Math.ceil(length / portion);
+        
+        flats.forEach((flat, index) => {
+            const page = Math.floor(index / portion) + 1;
+            if (!portionedFlats[page]) {
+                portionedFlats[page] = [];
             }
-            $container.innerHTML = ids.map(id => {
-                const flat = flats[id];
-                return $card(flat);
-            }).join('');
-        })
-});
+            portionedFlats[page].push(flat);
+        });
 
-// mark checked checkboxes from default URL search params
-const filterDefaultSearchParams = new URLSearchParams(window.location.search);
-Array.from(filterDefaultSearchParams.entries()).forEach(([key, value]) => {
-    if (key.startsWith(SEARCH_PARAMS_FILTER_PREFIX)) {
-        const [ _, name, valueName ] = key.split('_');     
-        document.querySelectorAll(`input[data-${name}="${valueName}"]`).forEach((el) => {
-            el.checked = true;
-        })
+        return {portionedFlats, totalPages};
     }
-});
 
-const filterModel = new FilterModel(
-    {
-        flats: mockFlats,
-        currentFilteredFlatIds$: currentFilteredFlatIds$,
-        onChangeFilterState: (state, filterConfig) => {
-            if (isEmpty(filterConfig)) return;
+    currentPage$.subscribe((page) => {
+        const $container = document.querySelector('[data-planning-list]');
+        document.querySelector('[data-more]').classList.toggle('hidden', currentPage$.value >= totalPages);
+        if (!paginationData[page]) return;
+        $container.insertAdjacentHTML('beforeend', paginationData[page].map(id => {
+            const flat = flats[id];
+            return $card(flat);
+        }).join(''));
+    })
 
-            const filterSearchParamsPrefix = SEARCH_PARAMS_FILTER_PREFIX;
+    currentFilteredFlatIds$.subscribe((ids) => {
+        paginationData = preparePgination(ids).portionedFlats;
+        totalPages = preparePgination(ids).totalPages;
+        const $container = document.querySelector('[data-planning-list]');
+        window.scrollTo({
+            top: 0,
+            // behavior: 'smooth',
+        });
+        $container.innerHTML = '';
+        currentPage$.next(1);
 
-            const searchParamsOfFilterState = Object.entries(state).reduce((acc, [key, value]) => {
-                const filterName = value[0];
-                const filterType = value[1].type;
-                switch (filterType) {
-                    case 'range':
-                        const rangeInstance = filterConfig[filterName].elem;
-                        if (rangeInstance.result.from !== rangeInstance.result.min) {
-                            acc[`${filterSearchParamsPrefix}${filterName}_min`] = value[1].min;
-                        }
-                        if (rangeInstance.result.to !== rangeInstance.result.max) {
-                            acc[`${filterSearchParamsPrefix}${filterName}_max`] = value[1].max;
-                        }
-                        break;
-                    case 'checkbox':
-                        value[1].value.forEach(val => {
-                            acc[`${filterSearchParamsPrefix}${filterName}_${val}`] = val;
-                        });
-                        break;
-                    case 'text':
-                        if (value[1].value) {
-                            acc[`${filterSearchParamsPrefix}${filterName}`] = value[1].value;
-                        }
-                        break;
-                }
-                return acc;
-            }, {});
 
-            const regExp = new RegExp(`${SEARCH_PARAMS_FILTER_PREFIX}`);
+    });
 
-            removeParamsByRegExp(regExp);
+    document.querySelector('[data-more]').addEventListener('click', (e) => {
+        currentPage$.next(currentPage$.value + 1);
+    })
 
-            pushParams(searchParamsOfFilterState);
+    // mark checked checkboxes from default URL search params
+    const filterDefaultSearchParams = new URLSearchParams(window.location.search);
+    Array.from(filterDefaultSearchParams.entries()).forEach(([key, value]) => {
+        if (key.startsWith(SEARCH_PARAMS_FILTER_PREFIX)) {
+            const [ _, name, valueName ] = key.split('_');     
+            document.querySelectorAll(`input[data-${name}="${valueName}"]`).forEach((el) => {
+                el.checked = true;
+            })
+        }
+    });
+
+    const filterModel = new FilterModel(
+        {
+            flats: mockFlats,
+            currentFilteredFlatIds$: currentFilteredFlatIds$,
+            onChangeFilterState: (state, filterConfig) => {
+                if (isEmpty(filterConfig)) return;
+
+                const filterSearchParamsPrefix = SEARCH_PARAMS_FILTER_PREFIX;
+
+                const searchParamsOfFilterState = Object.entries(state).reduce((acc, [key, value]) => {
+                    const filterName = value[0];
+                    const filterType = value[1].type;
+                    switch (filterType) {
+                        case 'range':
+                            const rangeInstance = filterConfig[filterName].elem;
+                            if (rangeInstance.result.from !== rangeInstance.result.min) {
+                                acc[`${filterSearchParamsPrefix}${filterName}_min`] = value[1].min;
+                            }
+                            if (rangeInstance.result.to !== rangeInstance.result.max) {
+                                acc[`${filterSearchParamsPrefix}${filterName}_max`] = value[1].max;
+                            }
+                            break;
+                        case 'checkbox':
+                            value[1].value.forEach(val => {
+                                acc[`${filterSearchParamsPrefix}${filterName}_${val}`] = val;
+                            });
+                            break;
+                        case 'text':
+                            if (value[1].value) {
+                                acc[`${filterSearchParamsPrefix}${filterName}`] = value[1].value;
+                            }
+                            break;
+                    }
+                    return acc;
+                }, {});
+
+                const regExp = new RegExp(`${SEARCH_PARAMS_FILTER_PREFIX}`);
+
+                removeParamsByRegExp(regExp);
+
+                pushParams(searchParamsOfFilterState);
+            },
         },
-    },
-);
-const filterView = new FilterView(filterModel, {});
-const filterController = new FilterController(filterModel, filterView);
+    );
+    const filterView = new FilterView(filterModel, {});
+    const filterController = new FilterController(filterModel, filterView);
 
-filterModel.init();
+    filterModel.init();
+}
 
-
-
-
+async function getFlats() {
+    if (window.location.href.match(/localhost|verstka/)) {
+        return Promise.resolve(mockFlats);
+    }
+    const fd = new FormData();
+    fd.append('action', 'getFlats');
+    const response = await fetch('/wp-admin/admin-ajax.php', {
+        method: 'POST',
+        body: fd,
+    });
+    const data = await response.json();
+    return data;
+}
 
 function $card(flat) {
 
