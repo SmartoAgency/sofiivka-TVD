@@ -202,6 +202,7 @@ document.querySelectorAll('.installment-block__img-wrap img').forEach(el => {
 
 function innerPagesBgParalax() {
     // .construction-page-bg img
+    if (window.screen.width > 600) return;
     const bgImg = document.querySelector('[data-inner-page-bg]');
     if (!bgImg) return;
     gsap.timeline({

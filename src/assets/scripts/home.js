@@ -374,9 +374,9 @@ function developerBlockParalax() {
   .to('.home-double-screen__developer-image:nth-child(4)', {
     yPercent: '100'
   }, '<')
-  .to('.home-double-screen__text-wrap .developer-link', {
-    yPercent: '50'
-  }, '<')
+  // .to('.home-double-screen__text-wrap .developer-link', {
+  //   yPercent: '50'
+  // }, '<')
 }
 
 developerBlockParalax();
