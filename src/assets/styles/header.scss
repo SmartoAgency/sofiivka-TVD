@@ -185,6 +185,17 @@
 				display: none;
 			}
 		}
+		@media (hover: hover) {
+			path {
+				transition: .25s ease-in-out;
+			}
+			&:hover path:first-child{
+				transform: translateY(2px);
+			}
+			&:hover path:last-child{
+				transform: translateY(-2px);
+			}
+		}
 	}
 	@include to(1024px){
 		&__center>.text-style-1920-body-titles {

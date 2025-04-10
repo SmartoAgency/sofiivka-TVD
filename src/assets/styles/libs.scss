@@ -32,3 +32,9 @@
 .swal2-confirm {
   font-family: $default-font;
 }
+
+.toast-close {
+  color: var(--color-black);
+  opacity: 1;
+  margin-left: 12px;
+}

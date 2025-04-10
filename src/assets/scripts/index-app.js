@@ -87,6 +87,12 @@ document.body.addEventListener('click', (evt) => {
     }
 });
 
+document.querySelectorAll('.menu__link').forEach(el => {
+    el.addEventListener('click',function(evt){
+        setMenuState(false);
+    });
+})
+
 document.body.addEventListener('click', (evt) => {
     const target = evt.target.closest('[data-menu-close]');
     if (target || evt.target.classList.contains('menu')) {

@@ -42,8 +42,6 @@ const forms = [
                 text-transform: uppercase;
                 z-index: 2;
                 padding: 8px;
-                padding-left: 40px;
-                padding-right: 40px;
                 color: rgba(7,34,47,1);
               ">
                 <svg style="margin-bottom: 25px;" width="100" height="100"  xmlns="http://www.w3.org/2000/svg" width="100" height="101" viewBox="0 0 100 101" fill="none">
@@ -60,8 +58,8 @@ const forms = [
                 <div style="padding-left: 40px; padding-right: 40px; text-align: center; margin-bottom: 10px;"  class="text-uppercase text-style-1920-h-2">
                   Повідомлення надіслано
                 </div>
-                <div class="text-style-1920-body" style="text-align: center; margin-bottom: 40px; max-width:500px; margin-left: auto; margin-right: auto; " >Дякуємо за звернення. Очікуйте дзвінка наших менеджерів. Бажаємо гарного дня та гарного настрою =)</div>
-                <button data-form-popup-close style="color: white; text-transform: uppercase; border-radius: 100px; background: var(--Black, #1A1A1D); display: flex;width: 100%;padding: 20px;justify-content: center;align-items: center;gap: 10px;" type="button" onclick="this.closest('[data-success]').remove()" class="button-30 button-30--success-popup">
+                <div class="text-style-1920-body" style="text-align: center; margin-bottom: 40px; max-width:500px; margin-left: auto; margin-right: auto; " >Дякуємо за звернення! Ми зв’яжемось з вами найближчим часом або час зазначиний вами</div>
+                <button data-form-popup-close style="color: white; text-transform: uppercase; border-radius: 100px; background: var(--Black, #1A1A1D); display: flex;width: 100%;padding: 20px;justify-content: center;align-items: center;gap: 10px;" type="button" onclick="this.closest('[data-success]').remove()" class="button-30 button-30--success-popup text-style-1920-button">
                   <span>Закрити</span>
                 </button>
               

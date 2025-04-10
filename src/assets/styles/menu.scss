@@ -10,6 +10,9 @@
     visibility: hidden;
     pointer-events: none;
     transition: .35s ease-in-out;
+    @include to(600px){
+        height: calc(var(--vh, 1vh) * 100);
+    }
     &.active {
         opacity: 1;
         visibility: visible;
@@ -43,7 +46,7 @@
     }
     &__link {
         @include text-style-1920-h-1;
-        line-height: 120%;
+        line-height: 140%;
         color: var(--color-white);
         &.active {
             color: var(--color-yellow);
@@ -64,6 +67,7 @@
                 color: var(--color-yellow);
                 transition: .25s ease-in-out;
                 pointer-events: none;
+                line-height: 140%;
                 transform: translate3d(0, -150%, 0);
             }
             &:before {
@@ -77,6 +81,7 @@
                 color: var(--color-white);
                 transition: .25s ease-in-out;
                 pointer-events: none;
+                line-height: 140%;
                 transform: translate3d(0, 0, 0);
             }
             &:hover:after {

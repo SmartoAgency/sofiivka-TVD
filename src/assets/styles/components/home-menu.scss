@@ -26,7 +26,7 @@
         }
     }
     &__item {
-        padding: 20px 16px;
+        padding: 15px 16px;
         color: var(--color-white);
         border-radius: 100px;
         white-space: nowrap;
@@ -49,6 +49,13 @@
             background: var(--color-gradient);
             transition: .25s ease-in-out;
             pointer-events: none;
+        }
+        &:hover {
+            background-color: rgba(#979AAF, 0.1);
+            
+            &:after {
+                opacity: 0;
+            }
         }
     }
     &__item.active {

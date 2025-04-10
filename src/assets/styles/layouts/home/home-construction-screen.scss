@@ -26,6 +26,18 @@
                     @include text-style-1920-button;
                 }
             }
+            [data-build-popup-open] [fill] {
+                transition: .25s ease-in-out;
+            }
+            [data-build-popup-open] [stroke] {
+                transition: .25s ease-in-out;
+            }
+            svg[data-build-popup-open]:hover [fill] {
+                fill: var(--color-white);
+            }
+            svg[data-build-popup-open]:hover [stroke] {
+                fill: var(--color-white);
+            }
         }
         @include to(1024px){
             [data-build-popup-open] {

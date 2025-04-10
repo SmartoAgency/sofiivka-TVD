@@ -22,7 +22,7 @@ $color-body-description: rgba(151,154,175,1);
 $color-stroke: rgba(54,54,58,1);
 $color-white: rgba(239,240,247,1);
 $color-yellow: rgba(224,221,0,1);
-$color-gradient: linear-gradient(to bottom, rgba(224,221,0,0.878) 0%,rgba(125,185,40,0.490) 100%);
+$color-gradient: linear-gradient(103deg, #E0DD00 0%, #7DB928 100%);
 
 :root {
 	--color-black: #1a1a1d;
@@ -30,7 +30,7 @@ $color-gradient: linear-gradient(to bottom, rgba(224,221,0,0.878) 0%,rgba(125,18
 	--color-stroke: #36363a;
 	--color-white: #eff0f7;
 	--color-yellow: #e0dd00;
-	--color-gradient: linear-gradient(to bottom, rgba(224,221,0,0.878) 0%,rgba(125,185,40,0.490) 100%);
+	--color-gradient: linear-gradient(103deg, #E0DD00 0%, #7DB928 100%);
 }
 
 .text-color-black {

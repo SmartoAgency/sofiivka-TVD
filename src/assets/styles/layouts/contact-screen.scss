@@ -1,13 +1,22 @@
 .contact-screen {
     position: relative;
+    @include from(1025px){
+        min-height: calc(100vh - var(--header-h));
+    }
     &__content {
         display: flex;
         flex-wrap: wrap;
+        @include from(1025px){ 
+            min-height: calc(100vh - var(--header-h));
+        }
     }
     &__info {
         position: relative;
         width: 50%;
         padding: 120px 60px;
+        @include from(1025px){ 
+            min-height: calc(100vh - var(--header-h));
+        }
         @include to(1024px){
             width: 100%;
             text-align: center;
@@ -104,6 +113,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        @include from(1025px){ 
+            min-height: calc(100vh - var(--header-h));
+        }
         @include to(1024px){
             width: 100%;
             padding: 210px 170px;
@@ -244,9 +256,15 @@
         font-family: $default-font;
         font-weight: 300;
         letter-spacing: -0.28px;
+        @include text-style-1920-button;
+        transition: .25s ease-in-out;
         &:disabled {
             background-color: rgba($color-black, 0.5);
             cursor: not-allowed;
+        }
+        &:hover {
+            background-color: var(--color-yellow);
+            color: var(--color-black);
         }
     }
     &-form__group-title {
@@ -264,3 +282,14 @@
 }
 
 
+
+
+@include to(600px){
+    [data-success] {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        .text-style-1920-body {
+            margin-bottom: 28px !important;
+        }
+    }
+}

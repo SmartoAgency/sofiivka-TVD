@@ -97,7 +97,11 @@ block content
             span Дивитися умови
         .installment-block__img
           .installment-block__img-wrap
-            img(src="./assets/images/home/installment-block.jpg", alt="")
+            <picture>
+              <source srcset="./assets/images/home/installment-block.jpg" media="(min-width: 601px)">
+              <source srcset="./assets/images/home/installment-block-mobile.jpg" media="(max-width: 600px)">
+              <img src="#", alt="", srcset="" loading="lazy"/>
+            </picture>
   include ../includes/contact-screen.pug
 block footer
   include ../includes/footer.pug

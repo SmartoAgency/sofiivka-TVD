@@ -74,6 +74,11 @@
   &-item:not(:last-child) .breadcrumbs-item__link {
     position: relative;
   }
+
+  &-item:not(:last-child) .breadcrumbs-item__link:hover {
+    color: var(--color-yellow);
+  }
+
   &-item:not(:last-child) .breadcrumbs-item__link:after {
     content: '';
     position: absolute;
@@ -91,7 +96,7 @@
       transition: .25s ease-out;
     }
     &-item:not(:last-child):hover .breadcrumbs-item__link {
-      color: var(--color-14427-c);
+      color: var(--color-yellow);
     }
     &-item:not(:last-child):hover .breadcrumbs-item__link:after {
       background-color: var(--color-14427-c);

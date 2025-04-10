@@ -47,29 +47,34 @@ function frontScreenSlider() {
       })
     }
 
-    function animate(swipe) {
+    function animate(swipe, timeleft = 0) {
       const slide = slider.querySelector('.swiper-slide-next img');
       
       if (swipe.realIndex % 2 == 0) { 
         gsap.fromTo(slide, {
           scale: 1
         },{
-          scale: 1.1, duration: delay / 1000, ease: 'none',
+          scale: 1.1, duration: Math.abs(timeleft - delay) / 1000, ease: 'none',
         })
       } else{
         gsap.fromTo(slide, {
           scale: 1.1
         },{
-          scale: 1, duration: delay / 1000, ease: 'none',
+          scale: 1, duration: Math.abs(timeleft - delay) / 1000, ease: 'none',
         })
       }
     }
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          swiper.autoplay.start();
+          swiper.autoplay.resume();
+          animate(swiper, swiper.autoplay.timeLeft);
+          
+          console.log('resume autoplay');
+          
         } else {
-          swiper.autoplay.stop();
+          swiper.autoplay.pause();
+          console.log('pause autoplay');
         }
       });
     }, { threshold: 0.5 });
@@ -173,6 +178,7 @@ document.querySelector('[data-home-advantages-slider-prev]').addEventListener('c
   const nextIndex = slideIndex() == 0 ? advSwiper.slides.length - 1 : slideIndex() - 1;
   setSlideIndex(nextIndex);
 });
+setSlideIndex(0);
 
 function handleInfraFilter() {
   const [ filter, setFilter, subscribeFilter ] = useState();
@@ -235,6 +241,17 @@ function homeMenuHandler() {
   function linksHandler(links, section) {
     links.forEach(el => el.classList.toggle('active', el.getAttribute('data-home-menu-link') === `#${section.id}`));
   }
+  //data-home-menu
+
+  document.querySelectorAll('[data-home-menu-link]').forEach(el => {
+    el.addEventListener('click',function(evt){
+      // match media query
+      const mediaQuery = window.matchMedia('(max-width: 1024px)');
+      if (mediaQuery.matches) {
+        document.querySelector('[data-home-menu]').classList.remove('active');
+      }
+    });
+  })
 
   const $menu = document.querySelector('[data-home-menu]');
   document.querySelectorAll('[data-home-menu-open]').forEach(el => {
@@ -341,3 +358,25 @@ function homeCharacteristicAnimation() {
   tl.fromTo(items, { y: 25, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.25, ease: 'power4.out', stagger: 0.1 });
 }
 homeCharacteristicAnimation();
+
+
+function developerBlockParalax() {
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: '.home-gallery-screen',
+      scrub: true,
+      end: '70% bottom'
+    }
+  })
+  .to('.home-double-screen__developer-image:last-child', {
+    yPercent: '80'
+  })
+  .to('.home-double-screen__developer-image:nth-child(4)', {
+    yPercent: '100'
+  }, '<')
+  .to('.home-double-screen__text-wrap .developer-link', {
+    yPercent: '50'
+  }, '<')
+}
+
+developerBlockParalax();

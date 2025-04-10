@@ -71,6 +71,15 @@
                 height: 24px;
             }
         }
+        @media (hover: hover) {
+            transition: .25s ease-in-out;
+            &:hover {
+                color: var(--color-yellow);
+                svg [fill] {
+                    fill: var(--color-yellow);
+                }
+            }
+        }
     }
     @media (hover: hover) {
         &__table-link svg path {

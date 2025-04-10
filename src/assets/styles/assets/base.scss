@@ -342,9 +342,6 @@ input[type=number]::-webkit-outer-spin-button {
 	border-radius: 100px;
 	@include text-style-1920-button;
 	text-transform: uppercase;
-
-	background-size: 200% 100%;
-    background-position: -100% 0;
 	overflow: hidden;
 	transform: translateZ(0);
 	&--light {
@@ -356,35 +353,27 @@ input[type=number]::-webkit-outer-spin-button {
 		border: 1px solid rgba(239, 240, 247, 0.20);
 	}
 	@media (hover: hover) {
-		position: relative;
-		background: none;
-		svg,
-		span {
-			position: relative;
-			z-index: 2;
-		}
-		&:before {
+		transition: .25s ease-in-out;
+		&:after {
 			content: '';
 			position: absolute;
-			top: 0;
 			left: 0;
+			top: 0;
 			width: 100%;
-			height: 200%;
-			background: var(--color-gradient);
-			background-size: cover;
-			// transition: all 0.3s ease-out;
-			transform: translateY(-25%);
+			height: 100%;
+			background: linear-gradient(103deg, #7DB928 0%, #E0DD00 100%);
+			z-index: -1;
+			opacity: 0;
+			transition: .55s ease-out;
 		}
-		&--transparent:before {
-			background: var(--color-white);
-			opacity: 00;
+		&:not(.button-main--light):not(.button-main--transparent):hover:after {
+			opacity: 1;
 		}
-		&--light:before {
-			background: var(--color-white);
-			display: none;
+		&--light:hover {
+			background: var(--color-yellow);
 		}
-		&:hover::before {
-			animation: buttonHover 2.2s ease-in-out infinite;
+		&--transparent:hover {
+			background-color: rgba(239, 240, 247, 0.20);
 		}
 	}
 }

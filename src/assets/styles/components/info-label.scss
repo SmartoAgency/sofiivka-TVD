@@ -74,6 +74,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         grid-area: digit;
+        transition: .25s ease-in-out;
         @media screen and (max-width:600px){
             margin-left: auto;
         }
@@ -96,15 +97,27 @@
         }
     }
     @media (hover: hover) {
+        transition: .25s ease-in-out;
         &:hover {
-            background: var(--color-gradient);
-            color: var(--color-white);
-            &__digit {
-                // background: var(--color-white);
-                // background-clip: text;
-                // -webkit-background-clip: text;
-                // -webkit-text-fill-color: transparent;
-            }
+            background: var(--color-yellow);
+            // color: var(--color-white);
+        }
+        &:hover svg [fill] {
+            // fill: var(--color-white);
+        }
+        &:hover &__digit {
+            background: var(--color-white);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: var(--color-black);
+        }
+        svg {
+            transform-origin: center;
+            transform-box: fill-box;
+            transition: .25s ease-in-out;
+        }
+        [data-build-popup-open]:hover {
+            transform: scale(1.1);
         }
     }
 }

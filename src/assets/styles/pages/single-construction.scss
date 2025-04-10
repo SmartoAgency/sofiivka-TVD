@@ -100,9 +100,11 @@
     gap: 10px;
     border-radius: 100px;
     border: 1px solid rgba(239, 240, 247, 0.20);
+    @include text-style-1920-button;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-white);
+    transition: .25s ease-in-out;
     span {
         @include to(1024px){
             display: none;
@@ -113,6 +115,9 @@
     svg path {
         transform-origin: center;
         transform-box: fill-box;
+    }
+    &:hover {
+        background-color: rgba(239, 240, 247, 0.20);
     }
     &:hover path {
         animation: backLinkAnimation 0.75s ease-in-out infinite;
