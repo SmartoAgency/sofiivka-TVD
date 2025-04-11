@@ -38,16 +38,22 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
-        padding: pxWidthInVw(120);
+        justify-content: flex-start;
+        padding: 25px pxWidthInVw(120);
+        overflow-y: auto;
+        @include to(1620px){
+            padding: 25px pxWidthInVw(80);
+        }
         @include to(600px){
+            justify-content: center;
             padding: 20px;
         }
     }
     &__link {
         @include text-style-1920-h-1;
-        line-height: 140%;
+        line-height: 120%;
         color: var(--color-white);
+        flex-shrink: 0;
         &.active {
             color: var(--color-yellow);
             pointer-events: none;
@@ -67,7 +73,7 @@
                 color: var(--color-yellow);
                 transition: .25s ease-in-out;
                 pointer-events: none;
-                line-height: 140%;
+                line-height: 120%;
                 transform: translate3d(0, -150%, 0);
             }
             &:before {
@@ -81,7 +87,7 @@
                 color: var(--color-white);
                 transition: .25s ease-in-out;
                 pointer-events: none;
-                line-height: 140%;
+                line-height: 120%;
                 transform: translate3d(0, 0, 0);
             }
             &:hover:after {
