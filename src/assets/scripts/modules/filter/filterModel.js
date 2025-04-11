@@ -28,7 +28,7 @@ class FilterModel extends EventEmitter {
       rooms: 'checkbox',
       eoselya: 'checkbox',
       level: 'checkbox',
-      _type_object: 'checkbox',
+      objecttype: 'checkbox',
       queue: 'checkbox',
       parking: 'checkbox',
     };
