@@ -25,18 +25,20 @@ if (new URLSearchParams(window.location.search).get('debug') != 'true') {
 function frontScreenSlider() {
     const slider = document.querySelector('[data-front-screen-slider]');
     if (!slider) return;
-    const changeSpeed = 1000;
+    const speed = 500;
     const delay = 5000;
     const swiper = new Swiper(slider, {
       modules: [EffectFade, Autoplay],
       effect: 'fade',
       loop: true,
-      autoplay: { delay: delay },
-      speed: 500, 
+      autoplay: { delay: delay - speed },
+      speed, 
       init: false,
     });
     swiper.on('afterInit', animateOnInit);
-    swiper.on('slideChange', animate);
+    swiper.on('slideChange', () => {
+      animate(swiper, delay / 1000);
+    });
     swiper.init();
 
     function animateOnInit() {
@@ -47,20 +49,22 @@ function frontScreenSlider() {
       })
     }
 
-    function animate(swipe, timeleft = 0) {
+    function animate(swipe, duration = 0) {
       const slide = slider.querySelector('.swiper-slide-next img');
-      
-      if (swipe.realIndex % 2 == 0) { 
+
+      if (swipe.realIndex % 2 == 0) {
+        const scale = gsap.utils.mapRange(delay, 0, 1, 1.1, duration);
         gsap.fromTo(slide, {
           scale: 1
         },{
-          scale: 1.1, duration: Math.abs(timeleft - delay) / 1000, ease: 'none',
+          scale: scale, duration, ease: 'none',
         })
       } else{
+        const scale = gsap.utils.mapRange(0, delay, 1.1, 1, duration);
         gsap.fromTo(slide, {
-          scale: 1.1
+          scale: scale
         },{
-          scale: 1, duration: Math.abs(timeleft - delay) / 1000, ease: 'none',
+          scale: 1, duration, ease: 'none',
         })
       }
     }
@@ -68,13 +72,9 @@ function frontScreenSlider() {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           swiper.autoplay.resume();
-          animate(swiper, swiper.autoplay.timeLeft);
-          
-          console.log('resume autoplay');
-          
+          animate(swiper, swiper.autoplay.timeLeft / 1000);
         } else {
           swiper.autoplay.pause();
-          console.log('pause autoplay');
         }
       });
     }, { threshold: 0.5 });
