@@ -41,6 +41,9 @@
         justify-content: flex-start;
         padding: 25px pxWidthInVw(120);
         overflow-y: auto;
+        @include from(1025px){
+            justify-content: center;
+        }
         @include to(1620px){
             padding: 25px pxWidthInVw(80);
         }
@@ -54,6 +57,9 @@
         line-height: 120%;
         color: var(--color-white);
         flex-shrink: 0;
+        @include from(1025px){
+            font-size: min(6.4vh,60px);
+        }
         &.active {
             color: var(--color-yellow);
             pointer-events: none;
