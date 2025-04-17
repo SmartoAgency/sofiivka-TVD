@@ -83,7 +83,7 @@ async function planningsGallery() {
 
     const filterModel = new FilterModel(
         {
-            flats: mockFlats,
+            flats: flats,
             currentFilteredFlatIds$: currentFilteredFlatIds$,
             onChangeFilterState: (state, filterConfig) => {
                 if (isEmpty(filterConfig)) return;
@@ -145,7 +145,7 @@ async function getFlats() {
     return data;
 }
 
-function $card(flat) {
+function $card(flat = {}) {
 
     const { area, rooms, floor, section, build, img_big, id } = flat;
     const areaStr = area ? `${area} м²` : 'N/A';
@@ -159,7 +159,7 @@ function $card(flat) {
             <div class="planning-card__image">
                 ${eoselya}
                 <div class="planning-card__image-wrap">
-                    <img src="${img_big}" loading="lazy" alt="" srcset="">
+                    <img src="${img_big}" loading="lazy" alt="" srcset="" onerror="this.style.opacity = 0;">
                 </div>
             </div>
             <div class="planning-card__bottom">
