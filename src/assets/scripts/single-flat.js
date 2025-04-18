@@ -41,17 +41,25 @@ async function getPdfLink() {
         text: 'Підготовка до завантаження',
     }).showToast();
 
+    const sendData =  {
+        action: 'createPdf',
+        id: new URLSearchParams(window.location.search).get('id'),
+        ...additionalParams
+    };
+
+    const fd = new FormData();
+    Object.keys(sendData).forEach(key => {
+        fd.append(key, sendData[key]);
+    });
+    fd.append('action', 'createPdf');
+
     axios({
         url:
             window.location.href.match(/localhost/)
                 ? `./static/pdf.txt`
                 : '/wp-admin/admin-ajax.php',
         method: window.status === 'local' ? 'get' : 'post',
-        data: {
-            action: 'createPdf',
-            id: new URLSearchParams(window.location.search).get('id'),
-            ...additionalParams
-        },
+        data: fd,
     })
         .then(resp => resp)
         .then(data => {

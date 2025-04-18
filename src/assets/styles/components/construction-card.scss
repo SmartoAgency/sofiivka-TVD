@@ -94,6 +94,12 @@
         color: var(--color-white);
         border-top: 1px solid var(--color-stroke);
         justify-content: center;
+        @include from(1025px){
+            padding: pxWidthInVw(24);
+        }
+        @include from(1441px){
+            padding: pxWidthInVw(36);
+        }
         @media screen and (max-width:600px){
             padding: 12px;
             position: static;

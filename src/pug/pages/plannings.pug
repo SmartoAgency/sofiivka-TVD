@@ -99,6 +99,23 @@ block content
             <path fill-rule="evenodd" clip-rule="evenodd" d="M7.99988 14.3638L7.64633 14.0103L1.98948 8.35343C1.79421 8.15816 1.79421 7.84158 1.98948 7.64632C2.18474 7.45106 2.50132 7.45106 2.69658 7.64632L7.49988 12.4496L7.49988 2.34302C7.49988 2.06688 7.72374 1.84302 7.99988 1.84302C8.27603 1.84302 8.49988 2.06688 8.49988 2.34302L8.49988 12.4496L13.3032 7.64632C13.4984 7.45106 13.815 7.45106 14.0103 7.64632C14.2056 7.84158 14.2056 8.15816 14.0103 8.35343L8.35344 14.0103L7.99988 14.3638Z" fill="#1A1A1D"/>
           </svg>
   include ../includes/contact-screen.pug
+  template#flat-card-template
+    a.planning-card(href='/single-flat?id={{id}}' data-id='{{id}}')
+      .planning-card__top {{rooms}}-к / {{area}} м²
+      .planning-card__image
+        | {{eoselya}}
+        .planning-card__image-wrap
+          img(src='{{img_big}}' loading='lazy' alt='' onerror='this.style.opacity = 0;')
+      .planning-card__bottom
+        .planning-card__bottom-group
+          | Будинок:&nbsp;
+          span.text-color-body-description {{build}}
+        .planning-card__bottom-group
+          | Секція:&nbsp;
+          span.text-color-body-description {{section}}
+        .planning-card__bottom-group
+          | Поверх:&nbsp;
+          span.text-color-body-description {{floor}}
 block footer
   include ../includes/footer.pug
 

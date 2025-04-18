@@ -9,7 +9,7 @@ import { pushParams, removeParamsByRegExp } from './modules/history/history.js';
 planningsGallery();
 
 async function planningsGallery() {
-    
+
     const SEARCH_PARAMS_FILTER_PREFIX = 'filter_';
     const currentFilteredFlatIds$ = new BehaviorSubject([]);
 
@@ -30,7 +30,7 @@ async function planningsGallery() {
         const portionedFlats = [];
         const length = flats.length;
         const totalPages = Math.ceil(length / portion);
-        
+
         flats.forEach((flat, index) => {
             const page = Math.floor(index / portion) + 1;
             if (!portionedFlats[page]) {
@@ -39,7 +39,7 @@ async function planningsGallery() {
             portionedFlats[page].push(flat);
         });
 
-        return {portionedFlats, totalPages};
+        return { portionedFlats, totalPages };
     }
 
     currentPage$.subscribe((page) => {
@@ -48,7 +48,8 @@ async function planningsGallery() {
         if (!paginationData[page]) return;
         $container.insertAdjacentHTML('beforeend', paginationData[page].map(id => {
             const flat = flats[id];
-            return $card(flat);
+            // return $card(flat);
+            return renderTemplate('flat-card-template', flat);
         }).join(''));
     })
 
@@ -74,7 +75,7 @@ async function planningsGallery() {
     const filterDefaultSearchParams = new URLSearchParams(window.location.search);
     Array.from(filterDefaultSearchParams.entries()).forEach(([key, value]) => {
         if (key.startsWith(SEARCH_PARAMS_FILTER_PREFIX)) {
-            const [ _, name, valueName ] = key.split('_');     
+            const [_, name, valueName] = key.split('_');
             document.querySelectorAll(`input[data-${name}="${valueName}"]`).forEach((el) => {
                 el.checked = true;
             })
@@ -180,4 +181,21 @@ function $card(flat = {}) {
             </div>
         </a>
     `;
+}
+
+
+function renderTemplate(templateId, data) {
+    const template = document.getElementById(templateId);
+    let html = template.innerHTML;
+
+    // Підставляємо дані в шаблон
+    for (const key in data) {
+        const value = data[key];
+        html = html.replaceAll(`{{${key}}}`, value);
+    }
+
+    // Створюємо елемент
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    return temp.firstElementChild.outerHTML;
 }

@@ -271,8 +271,8 @@ body {
     --color-text: #ffffff;
     --color-bg: #312b35;
     --color-link: #89639e;
-    --color-link-hover: #ce1352;
-    --button-filler: #ce1352;
+    --color-link-hover: var(--color-yellow);
+    --button-filler: var(--color-yellow);
 }
 
 .button {
