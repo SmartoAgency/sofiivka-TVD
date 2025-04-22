@@ -147,7 +147,6 @@ const advSwiper = new Swiper('[data-home-advantages-slider]', {
     }
   }
 })
-console.log('advSwiper', advSwiper);
 
 
 const [ slideIndex, setSlideIndex, subscribeSlideIndex ] = useState(0);
@@ -317,7 +316,6 @@ function aboutScreenSwipeImageHandler() {
   })
 
   input.addEventListener('input', (e) => {
-    console.log('icon', icon);
     const value = e.target.value;
     image.scrollLeft = value;
     setScrollValue(value);

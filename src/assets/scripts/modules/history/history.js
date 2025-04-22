@@ -25,7 +25,6 @@ export function removeParamsByRegExp(regExp) {
 }
 
 export function pushParams(params) {
-    console.log('pushParams', params);
     if ('URLSearchParams' in window) {
         var searchParams = new URLSearchParams(window.location.search);
         for (let key in params) {

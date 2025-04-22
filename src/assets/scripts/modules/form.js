@@ -13,7 +13,6 @@ const forms = [
     '[data-contact-screen-form]',
     '[data-contact-screen-form-in-popup]',
   ];
-  console.log('ffff');
   forms.forEach((form) => {
     const $form = document.querySelector(form);
     if ($form) {

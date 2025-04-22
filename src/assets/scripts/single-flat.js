@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
+import axios from 'axios';
 import Toastify from 'toastify-js';
 import { useState } from './modules/helpers/helpers';
-import axios from 'axios';
 
 
 const [flatImage, setFlatImage, subscribeFlatImage] = useState('');
@@ -73,14 +73,12 @@ async function getPdfLink() {
             });
         })
         .then(data => {
-            console.log(data);
-            
             if (!data.data) {
                 Toastify({
                     position: 'center',
                     gravity: 'bottom',
                     close: true,
-                    text: 'Сталася помилка',
+                    text: 'Сталася помилка!',
                     duration: 4000,
                 }).showToast();
                 return;

@@ -59,7 +59,6 @@ class FilterView extends EventEmitter {
 
     model.on('hideFilter', () => {
       this.hidden();
-      console.log('filter scroll');
     });
     model.on('setAmountAllFlat', data => {
       this.setAmountAllFlat(data);

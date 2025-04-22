@@ -47,14 +47,14 @@ const config = {
     },
   },
   plugins: [
-    new UglifyJSPlugin({
-      sourceMap: true,
-      uglifyOptions: {
-        compress: {
-          drop_console: process.argv.includes('--production'),
-        },
-      },
-    }),
+    // new UglifyJSPlugin({
+    //   sourceMap: true,
+    //   uglifyOptions: {
+    //     compress: {
+    //       drop_console: process.argv.includes('--production'),
+    //     },
+    //   },
+    // }),
   ],
 };
 

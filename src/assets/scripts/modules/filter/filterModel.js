@@ -172,14 +172,16 @@ class FilterModel extends EventEmitter {
     }
     const setting = acc;
     if (!setting[name]) {
-      setting[name] = { min: flat[name], max: flat[name] };
+      setting[name] = { min: +flat[name], max: +flat[name] };
       return setting;
     }
+
+    
     if (flat[name] < setting[name].min) {
-      setting[name].min = flat[name];
+      setting[name].min = +flat[name];
     }
     if (flat[name] > setting[name].max) {
-      setting[name].max = flat[name];
+      setting[name].max = +flat[name];
     }
     setting[name].type = name;
     return setting;
@@ -224,8 +226,6 @@ class FilterModel extends EventEmitter {
       const $min = $(`.js-filter-range [data-type=${config.type}][data-border="min"]`);
       const $max = $(`.js-filter-range [data-type=${config.type}][data-border="max"]`);
       const rangeSlider = $(`.js-filter-range .js-s3d-filter__${config.type}--input[data-type=${config.type}]`);
-
-      console.log('#rangeSlider', rangeSlider, config.type, min, max);
       
 
       const searchParams = parseSearchUrl(window.location);
@@ -251,8 +251,6 @@ class FilterModel extends EventEmitter {
         },
         onUpdate: updateInputs,
       });
-
-      console.log('ionRangeSlider', rangeSlider);
       
       const instance = rangeSlider.data('ionRangeSlider');
       instance.update({
@@ -400,12 +398,16 @@ class FilterModel extends EventEmitter {
         }
         switch (value.type) {
           case 'text':
+            
             return this.checkTextParam(flat, name, value);
           case 'range':
+            
             return this.checkRangeParam(flat, name, value);
           case 'checkbox':
+            
             return this.checkСheckboxParam(flat, name, value);
           case 'option':
+            
             return this.checkOptionParam(flat, name, value);
           default:
             break;
