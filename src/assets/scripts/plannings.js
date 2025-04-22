@@ -133,7 +133,7 @@ async function planningsGallery() {
 }
 
 async function getFlats() {
-    if (window.location.href.match(/localhost|verstka/)) {
+    if (window.location.href.match(/localhost|verstka|192/)) {
         return Promise.resolve(mockFlats);
     }
     const fd = new FormData();
