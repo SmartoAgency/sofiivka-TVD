@@ -240,6 +240,13 @@
     text-transform: uppercase;
     cursor: pointer;
     width: max-content;
+    background-color: var(--color-white);
+    color: var(--color-stroke);
+    svg {
+        [fill] {
+            fill: var(--color-stroke);
+        }
+    }
 
     &:hover {
         background-color: var(--color-yellow);

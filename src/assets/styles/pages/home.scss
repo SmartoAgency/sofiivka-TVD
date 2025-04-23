@@ -875,10 +875,13 @@
             }
 
             &.active {
-                background-color: var(--color-black);
-                border-color: var(--color-black);
+                // background-color: var(--color-black);
+                // border-color: var(--color-black);
+                background-color: var(--color-white);
+                border-color: var(--color-white);
+                color: var(--color-black);
             }
-            &:hover {
+            &:hover:not(.active) {
                 background-color: rgba(#979AAF, 0.1);
             }
         }

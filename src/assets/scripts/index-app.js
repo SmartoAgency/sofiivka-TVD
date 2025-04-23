@@ -1,11 +1,18 @@
+import Headroom from 'headroom.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import './modules/form';
 import splitToLinesAndFadeUp from './modules/effects/splitLinesAndFadeUp';
 import { lenis } from './modules/scroll/leniscroll';
+import Swal from 'sweetalert2';
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
+
+
+const header = document.querySelector('.header');
+const headroom = new Headroom(header, {});
+headroom.init();
 
 //data-popup
 
@@ -218,3 +225,33 @@ function innerPagesBgParalax() {
 }
 
 innerPagesBgParalax();
+
+
+//data-installment-popup-text
+//data-installment-popup-open
+
+document.body.addEventListener('click', function installmentPopupHandler(evt) {
+    const target = evt.target.closest('[data-installment-popup-open]');
+    if (!target) return;
+    const text = document.querySelector('[data-installment-popup-text]').innerHTML;
+    Swal.fire({
+        html: text,
+        showCloseButton: true,
+        showConfirmButton: false,
+        showCancelButton: false,
+        width: 600,
+        focusConfirm: false,
+        customClass: {
+            popup: 'installment-popup',
+            container: 'installment-popup-container',
+            closeButton: 'popup-close',
+            confirmButton: 'btn btn--primary',
+        },
+    });
+});
+
+document.body.addEventListener('click', function closeInstallmentPopup(evt) {
+    const target = evt.target.closest('[data-installment-popup-close]');
+    if (!target) return;
+    Swal.close();
+});

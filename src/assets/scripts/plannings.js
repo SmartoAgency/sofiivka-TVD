@@ -18,7 +18,10 @@ async function planningsGallery() {
     const flats = fetchedFlats.reduce((acc, flat) => {
         acc[flat.id] = flat;
         return acc;
-    }, {})
+    }, {});
+
+    console.log('flats', flats);
+    
 
 
     let paginationData = [];
@@ -39,6 +42,9 @@ async function planningsGallery() {
             portionedFlats[page].push(flat);
         });
 
+        console.log('portionedFlats', portionedFlats);
+        
+
         return { portionedFlats, totalPages };
     }
 
@@ -54,8 +60,13 @@ async function planningsGallery() {
     })
 
     currentFilteredFlatIds$.subscribe((ids) => {
-        paginationData = preparePgination(ids).portionedFlats;
-        totalPages = preparePgination(ids).totalPages;
+        const idsSortedByArea = ids.sort((a, b) => {
+            const areaA = flats[a].area || 0;
+            const areaB = flats[b].area || 0;
+            return areaA - areaB > 0 ? 1 : -1;
+        })
+        paginationData = preparePgination(idsSortedByArea).portionedFlats;
+        totalPages = preparePgination(idsSortedByArea).totalPages;
         const $container = document.querySelector('[data-planning-list]');
         window.scrollTo({
             top: 0,

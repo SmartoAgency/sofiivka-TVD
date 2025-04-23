@@ -80,3 +80,33 @@
     transform: translateY(-120%);
   }
 }
+div:where(.swal2-container).swal2-backdrop-show.installment-popup-container, div:where(.swal2-container).swal2-noanimation.installment-popup-container {
+  background: rgba(30, 30, 34, 0.70);
+  .swal2-html-container {
+    padding: 24px;
+  }
+}
+.installment-popup {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  .text-style-1920-h-2 {
+    font-size: min(2.5vw, 48px);
+        font-style: normal;
+        font-weight: 300;
+        line-height: 120%;
+        letter-spacing: -0.96px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+
+  }
+  p {
+    margin-top: 20px;
+  }
+  button.popup-close:where(.swal2-close):hover {
+    color: var(--color-black);
+  }
+  .button-main {
+    margin: auto;
+    margin-top: 15px;
+  }
+}

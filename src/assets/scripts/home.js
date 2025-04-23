@@ -1,7 +1,6 @@
 import Swiper, { EffectFade, Mousewheel, Navigation, Autoplay } from 'swiper';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import Headroom from 'headroom.js';
 import { pad, useState } from './modules/helpers/helpers';
 import splitToLinesAndFadeUp from './modules/effects/splitLinesAndFadeUp';
 import Accordion from "accordion-js";
@@ -9,10 +8,10 @@ import googleMap from './modules/map/map';
 import './modules/gallery/gallerySlider';
 import { debounce } from 'lodash';
 
-const header = document.querySelector('.header');
+// const header = document.querySelector('.header');
 
-const headroom = new Headroom(header, {});
-headroom.init();
+// const headroom = new Headroom(header, {});
+// headroom.init();
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
