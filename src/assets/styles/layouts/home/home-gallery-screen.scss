@@ -90,6 +90,7 @@
 		position: relative;
 		overflow: hidden;
 		will-change: transform;
+		pointer-events: none;
 	}
 	&__img {
 		grid-area: 1 / 1 / -1 / -1;
@@ -152,7 +153,7 @@
 	.frame__nav {
 		position: absolute;
 		left: 0;
-		bottom: 25px;
+		bottom: 0;
 		z-index: 4;
 		background: radial-gradient(100% 100% at 0% 100%, rgba(30, 30, 34, 0.80) 0%, rgba(30, 30, 34, 0.00) 100%);
 		width: 500px;
@@ -164,6 +165,7 @@
 		align-content: end;
 		grid-gap: 8px;
 		padding-left: 25px;
+		padding-bottom: 25px;
 		@include to(600px){
 			display: none;
 		}
