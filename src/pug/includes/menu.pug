@@ -21,6 +21,9 @@ nav.menu(data-lenis-prevent data-menu)
 
     .menu__bg
     .menu__content
+        .menu__langs
+            a(href="#").menu__lang.active UA
+            a(href="#").menu__lang EN
         each val, index in links
             -
                 var isActive = index == 0 ? 'active' : ''

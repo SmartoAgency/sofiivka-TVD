@@ -191,7 +191,12 @@ function renderTemplate(templateId, data) {
     // Підставляємо дані в шаблон
     for (const key in data) {
         const value = data[key];
-        html = html.replaceAll(`{{${key}}}`, value);
+        if (key === 'eoselya' && value) {
+            //<img class="planning-card__image-label" src="./assets/images/eoselya.svg">
+            html = html.replaceAll(`{{${key}}}`, `<img class="planning-card__image-label" src="/wp-content/themes/3d/assets/images/eoselya.svg">`);
+        } else {
+            html = html.replaceAll(`{{${key}}}`, value);
+        }
     }
 
     // Створюємо елемент

@@ -131,4 +131,22 @@
             }
         }
     }
+    &__langs {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        a {
+            color: var(--color-white);
+            text-decoration: none;
+            order: -1;
+            &.non-active {
+                opacity: 0.5;
+                pointer-events: none;
+                order: 1;
+            }
+        }
+    }
 }

@@ -32,6 +32,8 @@
         @include from(1025px){
             position: sticky;
             top: var(--header-h);
+            max-height: calc(100vh - var(--header-h));
+            overflow-y: auto;
         }
         @include to(1024px){
             width: 100%;
