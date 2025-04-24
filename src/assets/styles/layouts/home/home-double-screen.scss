@@ -4,6 +4,9 @@
     padding-right: 15.625%;
     padding-bottom: var(--section-v-offset);
     overflow: hidden;
+    @include from(1025px){
+        padding-top: 50px;
+    }
     @include from-to(1025px, 1380px){
         padding-left: 100px;
         padding-right: 100px;
@@ -96,7 +99,7 @@
             transform-origin: center;
             transform-box: fill-box;
         }
-        &__table-link:hover path {
+        &__table-link:hover svg:not(.disable-animation) path {
             animation: tableLinkAnimation 1s infinite;
         }
     }
@@ -188,6 +191,7 @@
     &__title1 {
         margin-bottom: 40px;
         text-align: center;
+
         @include to(1024px){
             margin-bottom: 80px;
         }
@@ -198,6 +202,10 @@
     &__title2 {
         margin-bottom: 160px;
         text-align: center;
+        @include from(1025px){
+            margin-top: -150px;
+            padding-top: 155px;
+        }
         @include to(600px){
             margin-bottom: 40px;
         }

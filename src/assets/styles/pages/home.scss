@@ -204,7 +204,7 @@
             text-align: center;
         }
         &>:nth-child(n+2) {
-            margin-top: 40px;
+            margin-top: pxWidthInVw(40);
             @include to(600px){
                 margin-top: 40px;
             }
@@ -220,6 +220,9 @@
         border-radius: 100px;
         display: flex;
         align-items: center;
+        @include from-to(1025px, 1240px){
+            padding: 20px 20px;
+        }
         @include to(1024px){
             flex-direction: column;
             border-radius: 20px;
@@ -317,6 +320,9 @@
     @include from-to(1025px, 1420px){
         --text-padding: 30px;
     }
+    @include from(1025px){
+        --text-padding: #{pxWidthInVw(60)};
+    }
     @include to(1024px){
         --text-padding: 20px;
     }
@@ -333,6 +339,7 @@
         @include row-flex();
         position: relative;
         z-index: 2;
+        align-items: center;
         @include from-to(1025px, 1320px){
             align-items: center;
         }
@@ -344,6 +351,9 @@
         @include size-md(24);
         @include shift-md(0);
         height: max-content;
+        @include from-to(1025px, 1240px){
+            @include size(24);
+        }
         @include from-to(601px, 1024px){
             height: 580px;
         }
@@ -440,10 +450,15 @@
         }
         @include size-md(24);
         @include shift-md(0);
+        @include from-to(1024px, 1240px){
+            @include size(24);
+            order: -1;
+            text-align: center;
+        }
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
-        padding-top: 78px;
+        // padding-top: 78px;
         @include to(1024px){
             order: -1;
             text-align: center;
@@ -460,7 +475,7 @@
         flex-wrap: wrap;
         width: 100%;
         margin-top: 40px;
-        @include to(1024px){
+        @include to(1240px){
             flex-wrap: nowrap;
             overflow-x: auto;
             max-width: calc(100vw - (var(--page-side-fields) * 2));
