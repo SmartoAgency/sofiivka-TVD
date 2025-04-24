@@ -116,12 +116,13 @@ block content
   include ../includes/home/home-advantages-block.pug
   include ../includes/home/home-plannings.pug
   include ../includes/home/home-characteristics.pug
-  .home-iframe.g_v_padding#aeroview
-    .home-iframe__title.text-style-1920-h-1(data-split-lines) АЕРООБЛІТ
-    .home-iframe__content
-      <link rel="stylesheet" href="https://aero.lun.ua/panorama.css">
-      <script defer src="https://aero.lun.ua/panorama.js"></script>
-      <div id="lun-panorama" data-building-id="4623"></div>
+  .home-iframe.g_v_padding
+    div#aeroview
+      .home-iframe__title.text-style-1920-h-1(data-split-lines) АЕРООБЛІТ
+      .home-iframe__content
+        <link rel="stylesheet" href="https://aero.lun.ua/panorama.css">
+        <script defer src="https://aero.lun.ua/panorama.js"></script>
+        <div id="lun-panorama" data-building-id="4623"></div>
   include ../includes/home/home-infrastructure.pug
   include ../includes/home/home-construction-screen.pug
   include ../includes/home/home-double-screen.pug

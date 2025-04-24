@@ -202,10 +202,6 @@
     &__title2 {
         margin-bottom: 160px;
         text-align: center;
-        @include from(1025px){
-            margin-top: -150px;
-            padding-top: 155px;
-        }
         @include to(600px){
             margin-bottom: 40px;
         }

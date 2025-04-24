@@ -26,67 +26,68 @@
     title: 'ПАРКІНГИ',},
   ]
 
-.home-plannings.g_side_padding.g_v_padding#plannings
-  .home-plannings__title.text-style-1920-h-1(data-split-lines) Планування
-  .home-plannings__content
-    each val in bigCards
-      a(href=val.link).card
-        .card__content
-          .card__left-top.text-style-1920-h-2 #{val.title}
-          .card__right-top
-            .text-style-1920-body-titles ВІД 40 м²
-            .text-style-1920-h-1.text-color-stroke 48
-          .card__img
-            .card__img-wrap
-              img(src=val.img, alt="")
-          .card__left-bottom
-            .text-style-1920-body-titles Квартир
-            .text-style-1920-h-1.text-color-stroke 48
-          .card__right-bottom
-            <svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M64.2304 59.4727L64.2304 15.9418L69.2304 15.9418L69.2304 65.5082L69.2304 68.0082L66.7304 68.0082L17.164 68.0082L17.164 63.0082L60.6949 63.0082L15.3962 17.7096L18.9318 14.1741L64.2304 59.4727Z" fill="url(#paint0_linear_663_126)"/>
-              <defs>
-              <linearGradient id="paint0_linear_663_126" x1="15.3962" y1="14.1741" x2="30.0696" y2="77.1349" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#E0DD00"/>
-              <stop offset="1" stop-color="#7DB928"/>
-              </linearGradient>
-              </defs>
-            </svg>
-            
-    each val in smallCards
-      a(href=val.link).card-low
-        .card-low__content 
-          .card-low__title.text-style-1920-body-titles #{val.title}
-          .card-low__text1 
-            div.text-style-1920-body-titles ВІД 40 м²
-            div.text-style-1920-h-1 48
-          .card-low__text2
-            div.text-style-1920-body-titles Приміщень
-            div.text-style-1920-h-1 9
-          .card-low__img 
-            .card-low__img-wrap 
-              img(src=val.img, alt="")
-          .card-low__arrow
-            <svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M64.2304 59.4725L64.2304 15.9416L69.2304 15.9416L69.2304 65.508L69.2304 68.008L66.7304 68.008L17.164 68.008L17.164 63.008L60.6949 63.008L15.3962 17.7094L18.9318 14.1738L64.2304 59.4725Z" fill="url(#paint0_linear_943_520)"/>
-              <defs>
-              <linearGradient id="paint0_linear_943_520" x1="15.3962" y1="14.1738" x2="30.0696" y2="77.1346" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#E0DD00"/>
-              <stop offset="1" stop-color="#7DB928"/>
-              </linearGradient>
-              </defs>
-            </svg>
-    .installment-block
-      .installment-block__text
-        .installment-block__title(data-split-lines) Цікавить розтермінування?
-        button(type="button" data-installment-popup-open).button-main
-          span Дивитися умови
-      .installment-block__img
-        .installment-block__img-wrap
-          <picture>
-            <source srcset="./assets/images/home/installment-block.jpg" media="(min-width: 601px)">
-            <source srcset="./assets/images/home/installment-block-mobile.jpg" media="(max-width: 600px)">
-            <img src="#", alt="", srcset="" loading="lazy"/>
-          </picture>
+.home-plannings.g_side_padding.g_v_padding
+  div#plannings
+    .home-plannings__title.text-style-1920-h-1(data-split-lines) Планування
+    .home-plannings__content
+      each val in bigCards
+        a(href=val.link).card
+          .card__content
+            .card__left-top.text-style-1920-h-2 #{val.title}
+            .card__right-top
+              .text-style-1920-body-titles ВІД 40 м²
+              .text-style-1920-h-1.text-color-stroke 48
+            .card__img
+              .card__img-wrap
+                img(src=val.img, alt="")
+            .card__left-bottom
+              .text-style-1920-body-titles Квартир
+              .text-style-1920-h-1.text-color-stroke 48
+            .card__right-bottom
+              <svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M64.2304 59.4727L64.2304 15.9418L69.2304 15.9418L69.2304 65.5082L69.2304 68.0082L66.7304 68.0082L17.164 68.0082L17.164 63.0082L60.6949 63.0082L15.3962 17.7096L18.9318 14.1741L64.2304 59.4727Z" fill="url(#paint0_linear_663_126)"/>
+                <defs>
+                <linearGradient id="paint0_linear_663_126" x1="15.3962" y1="14.1741" x2="30.0696" y2="77.1349" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E0DD00"/>
+                <stop offset="1" stop-color="#7DB928"/>
+                </linearGradient>
+                </defs>
+              </svg>
+              
+      each val in smallCards
+        a(href=val.link).card-low
+          .card-low__content 
+            .card-low__title.text-style-1920-body-titles #{val.title}
+            .card-low__text1 
+              div.text-style-1920-body-titles ВІД 40 м²
+              div.text-style-1920-h-1 48
+            .card-low__text2
+              div.text-style-1920-body-titles Приміщень
+              div.text-style-1920-h-1 9
+            .card-low__img 
+              .card-low__img-wrap 
+                img(src=val.img, alt="")
+            .card-low__arrow
+              <svg width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M64.2304 59.4725L64.2304 15.9416L69.2304 15.9416L69.2304 65.508L69.2304 68.008L66.7304 68.008L17.164 68.008L17.164 63.008L60.6949 63.008L15.3962 17.7094L18.9318 14.1738L64.2304 59.4725Z" fill="url(#paint0_linear_943_520)"/>
+                <defs>
+                <linearGradient id="paint0_linear_943_520" x1="15.3962" y1="14.1738" x2="30.0696" y2="77.1346" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#E0DD00"/>
+                <stop offset="1" stop-color="#7DB928"/>
+                </linearGradient>
+                </defs>
+              </svg>
+      .installment-block
+        .installment-block__text
+          .installment-block__title(data-split-lines) Цікавить розтермінування?
+          button(type="button" data-installment-popup-open).button-main
+            span Дивитися умови
+        .installment-block__img
+          .installment-block__img-wrap
+            <picture>
+              <source srcset="./assets/images/home/installment-block.jpg" media="(min-width: 601px)">
+              <source srcset="./assets/images/home/installment-block-mobile.jpg" media="(max-width: 600px)">
+              <img src="#", alt="", srcset="" loading="lazy"/>
+            </picture>
 
 

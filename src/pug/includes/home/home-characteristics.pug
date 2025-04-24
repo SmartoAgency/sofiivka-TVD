@@ -49,19 +49,20 @@
     description: "газ, вода та світло",
     icon: "./assets/images/home/characteristics/Counters.svg"}, 
   ]
-.home-characteristics.g_side_padding.g_v_padding#characteristics
-  <picture>
-    <source srcset="./assets/images/home/characteristics/bg.jpg" media="(min-width: 601px)">
-    <source srcset="./assets/images/home/characteristics/bg-mobile.jpg" media="(max-width: 600px)">
-    <img class="home-characteristics__bg" src="#", alt="", srcset="" loading="lazy"  data-bg-paralax/>
-  </picture>
-  .home-characteristics__title.text-style-1920-h-1(data-split-lines) Параметри
-  .home-characteristics__content
-    each val in list
-      .home-characteristics__item
-        .home-characteristics__item-icon-wrap
-          img(src=val.icon, alt="")
-        .home-characteristics__item-text
-          .home-characteristics__item-number.text-color-body-description= val.number
-          .home-characteristics__item-title.text-style-1920-h-2= val.title
-          .home-characteristics__item-description.text-color-body-description= val.description
+.home-characteristics.g_side_padding.g_v_padding
+  div#characteristics
+    <picture>
+      <source srcset="./assets/images/home/characteristics/bg.jpg" media="(min-width: 601px)">
+      <source srcset="./assets/images/home/characteristics/bg-mobile.jpg" media="(max-width: 600px)">
+      <img class="home-characteristics__bg" src="#", alt="", srcset="" loading="lazy"  data-bg-paralax/>
+    </picture>
+    .home-characteristics__title.text-style-1920-h-1(data-split-lines) Параметри
+    .home-characteristics__content
+      each val in list
+        .home-characteristics__item
+          .home-characteristics__item-icon-wrap
+            img(src=val.icon, alt="")
+          .home-characteristics__item-text
+            .home-characteristics__item-number.text-color-body-description= val.number
+            .home-characteristics__item-title.text-style-1920-h-2= val.title
+            .home-characteristics__item-description.text-color-body-description= val.description

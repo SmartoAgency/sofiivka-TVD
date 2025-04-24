@@ -13,6 +13,7 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger);
 const header = document.querySelector('.header');
 const headroom = new Headroom(header, {});
 headroom.init();
+header.headroom = headroom;
 
 //data-popup
 

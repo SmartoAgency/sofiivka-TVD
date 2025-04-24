@@ -16,6 +16,14 @@ import { debounce } from 'lodash';
 gsap.registerPlugin(ScrollTrigger);
 gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
+window.addEventListener('lun-panorama-init',function(evt){
+  setTimeout(() => {
+    ScrollTrigger.refresh(true);
+  }, 1500);
+  console.log('panorama init');
+  
+});
+
 if (new URLSearchParams(window.location.search).get('debug') != 'true') {
   googleMap();
 }
@@ -232,7 +240,7 @@ function homeMenuHandler() {
         end: 'bottom 50%',
         onEnter: () => {debouncedLinksHandler(links, section)},
         onEnterBack: () => {debouncedLinksHandler(links, section)},
-        markers: true,
+        // markers: true,
       },
     })
   });
@@ -245,10 +253,12 @@ function homeMenuHandler() {
   document.querySelectorAll('[data-home-menu-link]').forEach(el => {
     el.addEventListener('click',function(evt){
       // match media query
-
+      document.querySelector('.header').headroom.freeze();
+      document.querySelector('.header').classList.add('headroom--unpinned');
       setTimeout(() => {
-        document.querySelector('.header').classList.remove('headroom--unpinned');
-      }, 300);
+        document.querySelector('.header').headroom.unfreeze();
+        
+      }, 1000);
       const mediaQuery = window.matchMedia('(max-width: 1024px)');
       if (mediaQuery.matches) {
         document.querySelector('[data-home-menu]').classList.remove('active');
@@ -274,11 +284,11 @@ homeMenuHandler();
 
 document.querySelectorAll('[data-home-down]').forEach(el => {
   el.addEventListener('click', () => {
-    const target = document.querySelector('.home-about-screen');
+    const target = document.querySelector('[id="about"]');
     if (!target) return;
     target.scrollIntoView({ behavior: 'smooth' });
     setTimeout(() => {
-      document.querySelector('.header').classList.remove('headroom--unpinned');
+      document.querySelector('.header').classList.add('headroom--unpinned');
     }, 1000)
   });
 });
