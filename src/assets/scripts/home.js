@@ -20,8 +20,6 @@ window.addEventListener('lun-panorama-init',function(evt){
   setTimeout(() => {
     ScrollTrigger.refresh(true);
   }, 1500);
-  console.log('panorama init');
-  
 });
 
 if (new URLSearchParams(window.location.search).get('debug') != 'true') {

@@ -4,6 +4,29 @@ import Toastify from 'toastify-js';
 import { useState } from './modules/helpers/helpers';
 
 
+function initTranslations()  {
+    const lang = document.documentElement.lang || 'en';
+    const translations = {
+        'en': {
+            'Підготовка до завантаження': 'Preparing for download',
+            'Сталася помилка!': 'An error occurred!',
+            'Файл готовий': 'File is ready',
+            'Завантажити': 'Download',
+        },
+        'ua': {
+            'Підготовка до завантаження': 'Підготовка до завантаження',
+            'Сталася помилка!': 'Сталася помилка!',
+            'Файл готовий': 'Файл готовий',
+            'Завантажити': 'Завантажити',
+        }
+    };
+    return function (key) {
+        return translations[lang][key] || key;
+    }
+}
+
+const t = initTranslations();
+
 const [flatImage, setFlatImage, subscribeFlatImage] = useState('');
 
 subscribeFlatImage((image) => {
@@ -38,7 +61,7 @@ async function getPdfLink() {
     const toast = Toastify({
         position: 'center',
         gravity: 'bottom',
-        text: 'Підготовка до завантаження',
+        text: t('Підготовка до завантаження'),
     }).showToast();
 
     const sendData =  {
@@ -78,13 +101,13 @@ async function getPdfLink() {
                     position: 'center',
                     gravity: 'bottom',
                     close: true,
-                    text: 'Сталася помилка!',
+                    text: t('Сталася помилка!'),
                     duration: 4000,
                 }).showToast();
                 return;
             }
             Swal.fire({
-                title: "Файл готовий",
+                title: t('Файл готовий'),
                 customClass: {
                     container: 's3d-pdf-popup',
                 },
@@ -111,7 +134,7 @@ async function getPdfLink() {
                         <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52556 14.3176L16.6836 7.60691L17.3675 8.33645L9.36753 15.8364L9.02556 16.157L8.68359 15.8364L0.683593 8.33645L1.36753 7.60691L8.52556 14.3176L8.52556 0.47168L9.52556 0.47168L9.52556 14.3176Z" fill="var(--color-black)"/>
                         </svg>
-                        <span>Завантажити</span>
+                        <span>${t('Завантажити')}</span>
                     </a>
                 `,
                 confirmButtonColor: 'var(--color-white)',
@@ -123,7 +146,7 @@ async function getPdfLink() {
                 position: 'center',
                 gravity: 'bottom',
                 close: true,
-                text: 'Сталася помилка',
+                text: t('Сталася помилка!'),
                 duration: 4000,
             }).showToast();
         })

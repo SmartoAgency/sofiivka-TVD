@@ -18,10 +18,7 @@ async function planningsGallery() {
     const flats = fetchedFlats.reduce((acc, flat) => {
         acc[flat.id] = flat;
         return acc;
-    }, {});
-
-    console.log('flats', flats);
-    
+    }, {});   
 
 
     let paginationData = [];
@@ -40,10 +37,7 @@ async function planningsGallery() {
                 portionedFlats[page] = [];
             }
             portionedFlats[page].push(flat);
-        });
-
-        console.log('portionedFlats', portionedFlats);
-        
+        });        
 
         return { portionedFlats, totalPages };
     }
