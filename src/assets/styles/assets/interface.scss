@@ -83,7 +83,15 @@
 div:where(.swal2-container).swal2-backdrop-show.installment-popup-container, div:where(.swal2-container).swal2-noanimation.installment-popup-container {
   background: rgba(30, 30, 34, 0.70);
   .swal2-html-container {
-    padding: 24px;
+    padding: 40px;
+  }
+  .popup-close {
+    transition: .25s ease-in-out;
+  }
+  
+  .swal2-close:hover {
+    // transform: scale(1.2);
+    transform: rotate(180deg);
   }
 }
 .installment-popup {
@@ -113,6 +121,6 @@ div:where(.swal2-container).swal2-backdrop-show.installment-popup-container, div
   }
   .button-main {
     margin: auto;
-    margin-top: 15px;
+    margin-top: 40px;
   }
 }

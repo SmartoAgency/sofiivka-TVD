@@ -29,6 +29,9 @@
         margin: auto;
         margin-bottom: 60px;
         position: relative;
+        @include from(1025px){
+            max-width: 65%;
+        }
     }
     &-slider {
         max-width: 1345px;
@@ -36,6 +39,9 @@
         height: 75vh;
         margin-bottom: 100px;
         overflow: initial;
+        @include from(1025px){
+            max-width: 65%;
+        }
         @include to(1024px){
             height: 50vh;
             margin-bottom: 80px;
@@ -61,6 +67,9 @@
     &__video {
         max-width: 1345px;
         margin: auto;
+        @include from(1025px){
+            max-width: 65%;
+        }
         &-button {
             position: absolute;
             left: 50%;

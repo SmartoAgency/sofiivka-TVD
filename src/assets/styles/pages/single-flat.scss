@@ -190,11 +190,12 @@
 
     .swal2-close {
         position: absolute;
-        transition: all 0.5s ease-out;
+        transition: all 0.35s ease-in-out;
     }
 
     .swal2-close:hover {
-        transform: scale(1.2);
+        // transform: scale(1.2);
+        transform: rotate(180deg);
     }
 
     .swal2-title {
@@ -239,9 +240,16 @@
     }
 
     .swal2-confirm {
-        background-color: var(--color-surface-brand-800);
+        // background: var(--color-surface-brand-800);
+        background: var(--color-gradient);
         border-color: var(--border-brand-900);
-        color: var(--color-surface-gray-200);
+        color: var(--color-black);
+        font-weight: 300;
+        &:hover {
+            background: var(--color-yellow) !important;
+            background-image: none !important; 
+            border-color: var(--border-brand-900);
+        }
 
         a {
             text-decoration: none;

@@ -30,7 +30,7 @@
             gap: 20px;
         }
         .construction-card {
-            flex: 1 1 calc(50% - 40px);
+            flex: 0 1 calc(50% - 40px);
             @include to(1024px){
                 flex: 1 1 100%;
             }
