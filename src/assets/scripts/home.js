@@ -381,12 +381,12 @@ function developerBlockParalax() {
       end: '70% bottom'
     }
   })
-  .to('.home-double-screen__developer-image:last-child', {
-    yPercent: '80'
-  })
-  .to('.home-double-screen__developer-image:nth-child(4)', {
-    yPercent: '100'
-  }, '<')
+  // .to('.home-double-screen__developer-image:last-child', {
+  //   yPercent: '80'
+  // })
+  // .to('.home-double-screen__developer-image:nth-child(4)', {
+  //   yPercent: '100'
+  // }, '<')
   // .to('.home-double-screen__text-wrap .developer-link', {
   //   yPercent: '50'
   // }, '<')
