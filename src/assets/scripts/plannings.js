@@ -24,7 +24,7 @@ async function planningsGallery() {
     let paginationData = [];
     let currentPage$ = new BehaviorSubject(1);
     let totalPages = 0;
-    const portion = 8;
+    const portion = 42;
 
     function preparePgination(flats = []) {
         const portionedFlats = [];

@@ -470,6 +470,30 @@ class FilterModel extends EventEmitter {
   }
 
   checkRangeParam(flat, key, value) {
+    if (key === 'floor') {
+      return this.checkFloorRangeParam(flat, key, value);
+    }
+    
+    return has(flat, key) && flat[key] >= value.min && flat[key] <= value.max;
+  }
+  
+  checkFloorRangeParam(flat, key, value) {
+    const floorRange = flat['floor_range'];
+
+    if (floorRange.match(/-/)) {
+      const [min, max] = floorRange.split('-').map(Number);
+      let isValid = false;
+      for (let i = min; i <= max; i++) {
+        if (this.isBetween(i, value.min, value.max)) {
+          isValid = true;
+          break;
+        }
+      }
+      return isValid;
+    } else {
+      return has(flat, 'floor_range') && this.isBetween(+flat['floor_range'], value.min, value.max);
+    }
+
     return has(flat, key) && flat[key] >= value.min && flat[key] <= value.max;
   }
 
@@ -480,6 +504,10 @@ class FilterModel extends EventEmitter {
   checkOptionParam(flat, key, value) {
     if (value.value.length === 0) return true;
     return value.value.some(name => flat[key][name]);
+  }
+
+  isBetween(x, min, max) {
+    return x >= min && x <= max;
   }
 
   // добавить возможные варианты и/или границы (min, max) в список созданых фильтров
