@@ -25,7 +25,7 @@ class FilterModel extends EventEmitter {
     this.types = {
       area: 'range',
       floor: 'range',
-      rooms: 'checkbox',
+      roomsforfilter: 'checkbox',
       eoselya: 'checkbox',
       level: 'checkbox',
       objecttype: 'checkbox',

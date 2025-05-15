@@ -66,6 +66,10 @@
                 }
             }
         }
+        svg.disable-animation {
+            width: 18px;
+            height: 18px;
+        }
     }
     &__table-link {
         color: var(--color-white);

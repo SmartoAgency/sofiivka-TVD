@@ -159,7 +159,7 @@
     }
 
     &__bottom {
-        padding: 35px;
+        padding: pxWidthInVw(35);
         display: flex;
         align-items: center;
         justify-content: center;
