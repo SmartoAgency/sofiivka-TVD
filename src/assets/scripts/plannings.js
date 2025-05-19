@@ -67,6 +67,12 @@ async function planningsGallery() {
             // behavior: 'smooth',
         });
         $container.innerHTML = '';
+        if (ids.length === 0) {
+            const template = document.getElementById('empty-planning-list');
+            $container.innerHTML = template.innerHTML;
+            return;
+        }
+        
         currentPage$.next(1);
 
 

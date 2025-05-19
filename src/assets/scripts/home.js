@@ -138,12 +138,20 @@ const advSwiper = new Swiper('[data-home-advantages-slider]', {
     crossFade: true,
 
   },
+  // allowTouchMove: false,
   loop: true,
   // navigation: {
   //   nextEl: '[data-home-advantages-slider-next]',
   //   prevEl: '[data-home-advantages-slider-prev]'
   // },
   on: {
+    touchEnd: function(e) {
+      console.log('touchend', e);
+      setTimeout(() => {
+        setSlideIndex(e.realIndex);
+      }, 500);
+      
+    },
     init: function () {
       // setSlideIndex(this.realIndex);
     },
