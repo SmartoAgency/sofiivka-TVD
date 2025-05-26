@@ -172,6 +172,11 @@
 .home-about-screen {
     padding-top: var(--section-v-offset);
     padding-bottom: var(--section-v-offset);
+    @include from(1025px){
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
     @include to(1024px){
         padding-left: 0;
         padding-right: 0;

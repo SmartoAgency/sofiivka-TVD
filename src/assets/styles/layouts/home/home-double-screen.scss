@@ -216,7 +216,7 @@
         }
     }
     &__title2 {
-        margin-bottom: 160px;
+        margin-bottom: var(--section-v-offset);
         text-align: center;
         @include to(600px){
             margin-bottom: 40px;
