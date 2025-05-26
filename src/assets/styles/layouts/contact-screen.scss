@@ -1,7 +1,7 @@
 .contact-screen {
     position: relative;
     @include from(1025px){
-        min-height: calc(100vh - var(--header-h));
+        min-height: calc(100vh);
     }
     &__content {
         display: flex;

@@ -794,6 +794,7 @@
     position: relative;
     --top-padding: 210px;
     // padding-top: var(--top-padding);
+    padding-top: var(--section-v-offset);
 
     @include to(600px) {
         --top-padding: 0;
