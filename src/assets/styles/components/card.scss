@@ -88,13 +88,15 @@
         @include from(1025px){
             @include size(24);
             @include shift(0);
+            margin-top: 0;
+            margin-bottom: 0;
         }
         @include to(1024px){
             grid-area: img;
         }
         &-wrap {
             position: relative;
-            padding-bottom: 50%;
+            padding-bottom: 42.5%;
             @include to(1024px){
                 padding-bottom: 67.5%;
             }
