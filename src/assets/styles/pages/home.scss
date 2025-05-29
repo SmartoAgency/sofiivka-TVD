@@ -691,7 +691,7 @@
     }
     .installment-block {
         margin-top: calc(var(--gap) * 2.5 - var(--gap));
-        margin-top: calc(var(--gap) + var(--section-v-offset) * 1.5);
+        // margin-top: calc(var(--gap) + var(--section-v-offset) * 1.5);
         @include to(1024px){
             margin-top: calc(150px - var(--gap));
         }
