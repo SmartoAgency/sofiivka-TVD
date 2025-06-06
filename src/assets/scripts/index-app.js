@@ -11,7 +11,9 @@ gsap.core.globals('ScrollTrigger', ScrollTrigger);
 
 
 const header = document.querySelector('.header');
-const headroom = new Headroom(header, {});
+const headroom = new Headroom(header, {
+    offset : 100,
+});
 headroom.init();
 header.headroom = headroom;
 
